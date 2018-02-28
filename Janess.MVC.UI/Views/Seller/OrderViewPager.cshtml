@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "OrderViewPager";
+    Layout = "~/Views/Shared/_LayoutSellerIframe.cshtml";
+}
+@* http://www.layui.com/doc/modules/table.html *@
+
+<h3>店铺订单管理</h3>
+<table class="table table-bordered table-hover layui-hide" id="test"></table>
+<input type="hidden" id="shopID" value="@ViewBag.ShopID" />
+
+<script type="text/html" id="optTpl">
+    <a href="#" class="layui-table-link" data-id="{{d.ID}}">派送</a>
+</script>
+
+@section myScript{
+    <script>
+        $(function () {
+            layui.use('table', initTable);
+            setInterval(function () {
+                layui.use('table', initTable);
+            }, 5000);
+        })
+
+        function initTable() {
+            var table = layui.table;
+
+            table.render({
+                elem: '#test',
+                id: 'tbOrder',
+                method: 'POST',
+                url: '/Seller/GetArticleByPager',
+                request: {
+                    pageName: 'PageIndex', //页码的参数名称，默认：page
+                    limitName: 'PageSize' //每页数据量的参数名，默认：limit
+                },
+                cols: [[
+                    //{ field: 'ID', width: 80, title: 'ID' },
+                    { field: 'ID', title: '订单ID' },
+                    { field: 'ORDER_USER_ID', title: '买家ID' },
+                    { field: 'ORDER_TIME', title: '订单创建时间', minWidth: 200 },
+                    { field: 'ORDER_RIDER_ID', title: '骑手ID' },
+                    { field: 'ORDER_ALLPRICE', title: '订单总价' },
+                    { field: '', title: '操作', templet: '#optTpl' }
+                ]],
+                page: {
+                    //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'], //自定义分页布局
+                    //curr: 5, //设定初始在第 5 页
+                    groups: 1, //只显示 1 个连续页码
+                    first: false, //不显示首页
+                    last: false, //不显示尾页
+                    limit: 10
+                },
+                limits: [10, 20, 50, 100],
+                response: {
+                    countName: "count",
+                    dataName: "data"
+                },
+                done: function (res, curr, count) {
+                    //数据渲染完的回调。你可以借此做一些其它的操作
+                }
+            });
+
+            bindTableEvt();
+        }
+
+        function show(evt) {
+            //debugger;
+            var id = $(this).attr("data-id");
+            parent.layer.confirm('是否确认派送？', { icon: 3, title: '提示' }, function (index) {
+                $.post("/Seller/UpdateStateByID",
+                    { id: id },
+                    function () {
+                        if (1) {
+                            layer.msg('派送成功', { icon: 1 });
+                        }
+                        layui.table.reload('tbOrder');
+                        bindTableEvt();
+                        parent.layer.close(index);
+                    });
+
+                parent.layer.close(index);
+            });
+        }
+
+        function bindTableEvt() {
+            $("#test+div").on('click', '.layui-table-link', show);
+        }
+
+    </script>
+}

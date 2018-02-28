@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = "~/Views/Buyer/PersonAsideView.cshtml";
+    ViewBag.Title = "个人信息";
+}
+<input type="hidden" id="BuyerId" value="@ViewBag.BuyerId" />
+<div class="user-info">
+    <!--标题 -->
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
+    </div>
+    <hr />
+
+    <!--头像 -->
+    <div class="user-infoPic">
+
+        <div class="filePic">
+            @*<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">*@
+            <img class="am-circle am-img-thumbnail" src="~/Image/head.jpg" alt="" />
+        </div>
+
+        <p class="am-form-help">头像</p>
+
+        <div class="info-m">
+            <div id="BUYER_NAME">
+
+            </div>
+        </div>
+    </div>
+
+    <!--个人信息 -->
+    <div class="info-main">
+        <form class="am-form am-form-horizontal">
+            <div class='am-form-group'>
+                <label for='user-name2' class='am-form-label'>昵称</label>
+                <div class='am-form-content'>
+                    <input type='text' placeholder='nickname' disabled='true' id='name' >
+                    <small>昵称不可修改</small>
+                </div>
+            </div>
+            <div class='am-form-group'>
+
+                <label for='user-phone' class='am-form-label'>联系电话</label>
+                <div class='am-form-content'>
+                    <input placeholder='telephonenumber' type='tel' id='tel'>
+                </div>
+            </div>
+            <div class='am-form-group'>
+
+                <label for='user-addres' class='am-form-label'>收货地址</label>
+                <div class='am-form-content'>
+                    <input placeholder='addres' type='text' id='address'>
+                </div>
+            </div>
+            <div class='info-btn'>
+                <div class='am-btn am-btn-danger' id='save'>保存修改</div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<input type="hidden" id="buyerid" value="@ViewBag.Id" />
+@section myScript{
+    <script>
+        $(function () {
+            getBuyerInfo();
+            loadData();
+            AltInfo();
+        })
+        //获取用户账号信息并显示
+        function getBuyerInfo() {
+            $.post("/Buyer/GetBuyersInfo", { id: $("#buyerid").val() }, function (data) {
+                var arr = data;
+                var html = "";
+                html += "账号：" + arr[0].ACCOUNT;
+                $("#BUYER_NAME").append(html);
+            })
+        }
+        //加载数据
+        function loadData() {
+            $.post('/Buyer/GetPersonByID', { id: $("#buyerid").val() }, function (data) {
+                var obj = $.getObjFromData(data);
+                setObj2Form(obj);
+            })
+        }
+        //将获取到的对象赋值到页面
+        function setObj2Form(data) {
+            if (data.BUYER_ADDRESS != "NULL" || data.BUYER_NAME != "NULL" || data.BUYER_TEL != "NULL") {
+                $("#name").val(data.BUYER_NAME);
+                $("#tel").val(data.BUYER_TEL);
+                $("#address").val(data.BUYER_ADDRESS);
+                
+            }
+        }
+        //修改用户信息
+        function AltInfo() {
+            $("#save").on('click', function () {
+                var id = $("#buyerid").val();
+                var name = $('#name').val();
+                var tel = $('#tel').val();
+                var address = $('#address').val();
+                $.post('/Buyer/AltBuyersInfo',
+                    {
+                        ID: id,
+                        BUYER_NAME: name,
+                        BUYER_TEL: tel,
+                        BUYER_ADDRESS: address
+                    }, function (data) {
+                        if (data) {
+                            layer.msg("修改成功", { icon: 1 });
+                        } else {
+                            layer.msg("修改失败", { icon: 2 });
+                        }
+                    })
+            })
+        }
+        $(function () {
+            if ($("#buyererHidName").val()) {
+                $("#buyernameDiv").show();
+            }
+            else {
+                $("#buyernameDiv").hide();
+            }
+        })
+    </script>
+}

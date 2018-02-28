@@ -1,0 +1,263 @@
+﻿@{
+    ViewBag.Title = "注册";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+    <link href="~/Content/amazeui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <link href="~/Content/amazeui.css" rel="stylesheet" />
+    <link href="~/Content/dlstyle.css" rel="stylesheet" />
+    <script src="~/Scripts/amazeui.min.js"></script>
+</head>
+
+<body>
+
+    <div class="login-boxtitle">
+        <a href="home/demo.html">
+            <img alt="" src="~/Image/logobig.png" />
+        </a>
+    </div>
+
+    <div class="res-banner">
+        <div class="res-main">
+            <div class="login-banner-bg">
+                <span>
+                    <img src="~/Image/big.jpg" />
+                </span>
+            </div>
+            <div class="login-box">
+
+                <div class="am-tabs" data-am-tabs>
+                    <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+                        <li class="am-active">
+                            <a href="tab1" id="User" name="Buyer" value="Buyer">买家</a>
+                        </li>
+                        <li>
+                            <a href="tab2" id="User" name="Seller" value="Seller">商家</a>
+                        </li>
+                        <li>
+                            <a href="tab3" id="User" name="Rider" value="Rider">骑手</a>
+                        </li>
+                    </ul>
+
+                    <div class="am-tabs-bd">
+                        <div class="am-tab-panel am-active" id="tab1">
+                            <form method="post">
+                                <div class="user-email">
+                                    <label for="Account"><i class="am-icon-envelope-o"></i></label>
+                                    <input type="text" name="account" id="Account" placeholder="请输入账号">
+                                </div>
+                                <div class="user-name">
+                                    <label for="Name"><i class="am-icon-envelope-o"></i></label>
+                                    <input type="text" name="name" id="Name" placeholder="请输入昵称">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="txtPwd"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="userpwd" id="txtPwd" placeholder="设置密码">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="txtPwd"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="userpwd" id="txtPwdRep" placeholder="确认密码">
+                                </div>
+                            </form>
+                            <div class="login-links">
+                                <label for="reader-me">
+                                    <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+                                </label>
+                            </div>
+                            <div class="am-cf">
+                                <input type="button" name="" id="btnAddBuyer" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+                                <input type="button" name="" id="btnBackBuyer" value="返回登录" class="am-btn am-btn-success am-btn-sm am-fl">
+                            </div>
+                        </div>
+                        <div class="am-tab-panel" id="tab2">
+                            <form method="post">
+                                <div class="user-email">
+                                    <label for="Account1"><i class="am-icon-envelope-o"></i></label>
+                                    <input type="text" name="account" id="Account1" placeholder="请输入账号">
+                                </div>
+                                <div class="user-name">
+                                    <label for="Name1"><i class="am-icon-envelope-o"></i></label>
+                                    <input type="text" name="name" id="Name1" placeholder="请输入昵称">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="txtPwd1"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="userpwd" id="txtPwd1" placeholder="设置密码">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="txtPwd1"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="userpwd" id="txtPwdRep1" placeholder="确认密码">
+                                </div>
+                            </form>
+                            <div class="login-links">
+                                <label for="reader-me">
+                                    <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+                                </label>
+                            </div>
+                            <div class="am-cf">
+                                <input type="button" name="" id="btnAddSeller" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+                                <input type="button" name="" id="btnBackSeller" value="返回登录" class="am-btn am-btn-success am-btn-sm am-fl">
+                            </div>
+
+                            <hr>
+                        </div>
+                        <div class="am-tab-panel" id="tab3">
+                            <form method="post">
+                                <div class="user-email">
+                                    <label for="Account2"><i class="am-icon-envelope-o"></i></label>
+                                    <input type="text" name="account" id="Account2" placeholder="请输入账号">
+                                </div>
+                                <div class="user-name">
+                                    <label for="Name2"><i class="am-icon-envelope-o"></i></label>
+                                    <input type="text" name="name" id="Name2" placeholder="请输入昵称">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="txtPwd2"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="userpwd" id="txtPwd2" placeholder="设置密码">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="txtPwd2"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="userpwd" id="txtPwdRep2" placeholder="确认密码">
+                                </div>
+                            </form>
+                            <div class="login-links">
+                                <label for="reader-me">
+                                    <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+                                </label>
+                            </div>
+                            <div class="am-cf">
+                                <input type="submit" name="" id="btnAddRider" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+                                <input type="button" name="" id="btnBackRider" value="返回登录" class="am-btn am-btn-success am-btn-sm am-fl">
+                            </div>
+
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+@section myScript{
+    <script>
+
+        $(function () {
+            $("#btnBackBuyer").on("click", function () { window.location.href = "/Login/SignInView"; });
+            $("#btnBackSeller").on("click", function () { window.location.href = "/Login/SignInView"; });
+            $("#btnBackRider").on("click", function () { window.location.href = "/Login/SignInView"; });
+            $("#btnAddBuyer").on("click", addBuyer);
+            $("#btnAddSeller").on("click", addSeller);
+            $("#btnAddRider").on("click", addRider);
+        })
+        function addBuyer() {
+            if ($.trim($("#txtPwd").val()) != $.trim($("#txtPwdRep").val())) {
+                alert("两次密码输入不一致");
+                //$("#txtPwd").foucs();
+                return;
+            }
+            if (!$("#reader-me").prop("checked")) {
+
+            }
+            $.post("/Login/AddBuyer", { Account: $("#Account").val(), Pwd: $("#txtPwd").val(),Buyer_Name:$("#Name").val() },
+            function (data) {
+                if (data.Status) {
+                    alert("注册成功！");
+                    window.location.href = "/Login/SignInView";
+                } else {
+                    alert("注册失败！");
+                    window.location.href = location.href;
+                    return false;
+                }
+            });
+        }
+        function addSeller() {
+            if ($.trim($("#txtPwd1").val()) != $.trim($("#txtPwdRep1").val())) {
+                alert("两次密码输入不一致");
+                //$("#txtPwd").foucs();
+                return;
+            }
+            $.post("/Login/AddSeller", { Account: $("#Account1").val(), Pwd: $("#txtPwd1").val(),Seller_Name:$("#Name1").val() },
+                    function (data) {
+                        if (data.Status) {
+                            alert("注册成功！");
+                            window.location.href = "/Login/SignInView";
+                        } else {
+                            alert("注册失败！");
+                            window.location.href = location.href;
+                        }
+                    });
+        }
+        function addRider() {
+            if ($.trim($("#txtPwd2").val()) != $.trim($("#txtPwdRep2").val())) {
+                alert("两次密码输入不一致");
+                //$("#txtPwd").foucs();
+                return;
+            }
+            $.post("/Login/AddRider", { Account: $("#Account2").val(), Pwd: $("#txtPwd2").val(),Rider_Name:$("#Name2").val() },
+                    function (data) {
+                        if (data.Status) {
+                            alert("注册成功！");
+                            window.location.href = "/Login/SignInView";
+                        }
+                            // else if (data) {
+                        //    layer.Msg(data.Msg)
+                            //}
+                        else {
+                            alert("注册失败！");
+                            window.location.href = location.href;
+                        }
+                    });
+        }
+    </script>
+}
+
+@*<div class="login-form">
+        <form>
+            <div class="form-group">
+                <label for="Account" class="sr-only"></label>
+                <input type="text" class="form-control" name="account" id="Account" placeholder="设置账号">
+            </div>
+            <div class="form-group">
+                <label for="txtPwd" class="sr-only"></label>
+                <input type="password" class="form-control" name="userpwd" id="txtPwd" placeholder="设置密码">
+            </div>
+            <div class="form-group">
+                <label for="txtPwd" class="sr-only"></label>
+                <input type="password" class="form-control" name="userpwd" id="txtPwdRep" placeholder="确认密码">
+            </div>
+        </form>
+    </div>*@
+@*<div class="am-cf">
+        <input id="btnAdd" type="button" name="" value="注    册" class="am-btn btn btn-primary btn btn-sm">
+        <input id="btnBack" type="button" name="" value="返回登录" class="am-btn btn btn-success btn btn-sm">
+    </div>*@
+@*<div class="am-tabs-bd">
+        <div class="am-tab-panel am-active">
+            <from method="post">
+                <div class="user-name">
+                    <label for="Account"></label>
+                    <input type="text" name="account" id="Account" placeholder="设置账号">
+                </div>
+                <div class="user-pass">
+                    <label for="txtPwd" class="sr-only"></label>
+                    <input type="password" class="form-control" name="userpwd" id="txtPwd" placeholder="设置密码">
+                </div>
+                <div class="user-pass">
+                    <label for="txtPwd" class="sr-only"></label>
+                    <input type="password" class="form-control" name="userpwd" id="txtPwdRep" placeholder="确认密码">
+                </div>
+    </div>*@

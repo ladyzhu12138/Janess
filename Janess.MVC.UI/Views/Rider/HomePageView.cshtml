@@ -1,0 +1,228 @@
+﻿@{
+    ViewBag.Title = "主页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="R1" value="@ViewBag.RiderID"/>
+<input type="hidden" id="R2" value="@ViewBag.Name" />
+
+<!--菜单栏-->
+<div class="header">
+    <div class="header-top">
+        <div class="container">
+            <p class="header-para">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">美好的一天开始了，开始接单了！</font>
+                </font>
+            </p>
+
+            <ul class="sign">
+                <li>
+                    <a href="/Rider/HomePageView">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">欢迎您,@ViewBag.Name（ID：@ViewBag.RiderID）</font>
+                        </font>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Index">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">退出</font>
+                        </font>
+                    </a>
+                </li>
+                @*<li>
+                    <a href="#"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                </li>*@
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="header-bottom-top">
+        <div class="container">
+            <!--搜索框-->
+            @*<div class="search">
+                <input type="text" id="txt" placeholder="订单ID" />
+                <input type="submit" id="SubMit"/>
+            </div>*@
+            <div class="clearfix"> </div>
+            <div class="header-bottom">
+                <div class="logo">
+                    <a href="/Rider/HomePageView">
+                        <img src="~/Image/Rider/grg.png" alt="" />
+                    </a>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li class="active">
+                            <a href="/Rider/HomePageView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">主页</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/AboutView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">关于</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/OrderDeliveredView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">抢单</font>
+                                </font>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Rider/OrderUnfinishedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">未完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/OrderCompletedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">已完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/ContactUsView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">联系我们</font>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--banner-->
+<div class="slider">
+    <ul class="rslides callbacks callbacks1" id="slider2">
+        <li id="callbacks1_s0" class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 300ms ease-in-out;">
+            <a href="#">
+                <img src="~/Image/Rider/y12ux4.jpg" alt=""/>
+                <div class="banner">
+                    <span class="matter"> </span>
+                </div>
+            </a>
+        </li>
+        <li id="callbacks1_s1" style="float: left; position: relative; opacity: 1; z-index: 2; display: list-item; transition: opacity 300ms ease-in-out;" class="callbacks1_on">
+            <a href="#">
+                <img src="~/Image/Rider/gadc4e.jpg" alt=""/>
+                <div class="banner">
+                    <span class="matter"> </span>
+                </div>
+            </a>
+        </li>
+        <li id="callbacks1_s2" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 300ms ease-in-out;" class="">
+            <a href="#">
+                <img src="~/Image/Rider/2r7ixz.jpg" alt=""/>
+                <div class="banner">
+                    <span class="matter"> </span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<iframe id="ifmMain" name="ifmMain" src="" frameborder="0" scrolling="auto" style="width:100%;"></iframe>
+<!--footer-->
+<div class="footer">
+    <div class="container">
+        <div class="foter-bottom">
+            <p class="footer-grid"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有©2017-2018.TIME团队保留所有权利。</font></font></p>
+            <div class="nav-top">
+                <ul>
+                    <li class="active"><a href="/Rider/HomePageView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主页</font></font></a></li>
+                    <li><a href="/Rider/AboutView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 关于</font></font></a></li>
+                    <li><a href="/Rider/OrderDeliveredView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">抢单</font></font></a></li>
+                    <li><a href="/Rider/OrderUnfinishedView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">未完成订单</font></font></a></li>
+                    <li><a href="/Rider/OrderCompletedView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已完成订单</font></font></a></li>
+                    <li><a href="/Rider/ContactUsView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系我们</font></font></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+@section myScript{
+    <script>
+        //内联框架高度自适应
+        $(function() {
+            mainHeight();
+            $(window).resize(mainHeight);
+            bindNavActiveStyle();
+        });
+        function mainHeight() {
+            $("#ifmMain").height(window.innerHeight - 270);
+        }
+       // 设置内联框架src，由内联框架内部js进行调用
+        var setIframeSrc = function(url) {
+            $("ifmMain").attr("src",url);
+        }
+        //点击导航的样式控制
+        function bindNavActiveStyle() {
+            $("nav li").on("click", function() {
+                $("nav li").removeClass("active");
+                $(this).addClass("active");
+            });
+        }
+
+        //模糊查询
+        $(function() {
+            $("#SubMit").on("click", searchOrderID);
+            $("#ifmMain").hide();
+        });
+        function searchOrderID() {
+            $(".slider").hide();
+            $("#ifmMain").show();
+            var keyOrderID = $("#txt").val();
+            $.post("/Rider/SearchOrderID", {
+                RiderID: $("#R1").val(),
+                keyOrderID: keyOrderID
+            }, function(data) {
+                var arr = $.getObjFromData(data);
+                var html = "<tr><th>订单ID</th><th>买家ID</th><th>商铺ID</th><th>骑手ID</th><th>订单创建时间</th><th>订单状态</th></tr>";
+                $("#ifmMain").html(html);
+                for (var i = 0; i < arr.length; i++) {
+                    html += "<tr>";
+                    html += "<td>" + arr[i].ID + "</td>";
+                    html += "<td>" + arr[i].ORDER_USER_ID + "</td>";
+                    html += "<td>" + arr[i].ORDER_SHOP_ID + "</td>";
+                    html += "<td>" + arr[i].ORDER_RIDER_ID + "</td>";
+                    html += "<td>" + arr[i].ORDER_TIME + "</td>";
+                    html += "<td>" + arr[i].ORDER_STATE + "</td>";
+                    html += "</tr>";
+                }
+                $("#ifmMain").html(html);
+            });
+        }
+
+        //菜单
+        $("span .menu").click(function () {
+            $(".top-nav ul").slideToggle(500, function () { });
+        });
+        //主页图片自定义
+        $(function () {
+            $("#slider2").responsiveSlides({
+                auto: true,
+                pager: true,
+                speed: 300,
+                namespace: "callbacks",
+            });
+        });
+    </script>
+}
+

@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "CollectionShopsView";
+    Layout = "~/Views/Buyer/PersonAsideView.cshtml";
+}
+
+<style>
+    #a {color:darkgray;text-decoration:none;}
+    a:hover {color: red; text-decoration:underline;}
+</style>
+
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">我的收藏</strong> / <small>My&nbsp;Collection</small></div>
+</div>
+<hr />
+<div class="you-like">
+    <div class="s-bar">
+        收藏的店铺
+    </div>
+    <div class="s-content">
+
+        <div id="content"></div>
+    </div>
+
+    <div class="s-more-btn i-load-more-item" data-screen="0"><i class="am-icon-refresh am-icon-fw"></i>更多</div>
+
+</div>
+<input type="hidden" id="buyerid" value="@ViewBag.Id" />
+@section myScript{
+    <script>
+            $(function () {
+                getShops();
+            });
+            function getShops() {
+                $.post("/Buyer/GetCollectShopsInfo", { id: $("#buyerid").val() }, function (data) {
+                    var arr = data;
+                    var html = "";
+                    for (var i = 0; i < arr.length; i++) {
+                        var img = "";
+                        if (arr[i].SHOP_IMAGE_URL == null) {
+                            img = "/Image/shop/DefaultShop.jpg";
+                        } else {
+                            img = arr[i].SHOP_IMAGE_URL;
+                        }
+                        html += "<div class='s-item-wrap'>";
+                        html += "<input type='hidden' class='shopsId' value=" + arr[i].ID + ">";
+                        html+="<div class='s-item'>";
+                        html += "<div class='s-pic'><a href='#' class='s-pic-link'>";
+                        html += "<img src=" + img + "  />";
+                        html += "</a></div>";
+                        html += "<div class='s-info'><div class='s-title'><a href='#' title=" + arr[i].SHOP_NAME + ">" + arr[i].SHOP_NAME + "</a></div>";
+                        html += "</div></div></div>";
+                    }
+                    $("#content").append(html);
+                    $(".s-item-wrap").on("click", intorduction);
+                });
+            };
+            function intorduction(evt) {
+                var input = $(evt.currentTarget).children("input");
+                var shopsID = input.val();
+                var url = "/Buyer/IntroductionShopView?val=" + shopsID;
+                window.location.href = url;
+            };
+    </script>
+}

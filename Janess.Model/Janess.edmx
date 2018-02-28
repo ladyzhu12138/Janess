@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JANESS_SYSTEM_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_ADMIN">
+          <Key>
+            <PropertyRef Name="ADMIN_ID" />
+          </Key>
+          <Property Name="ADMIN_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ADMIN_PWD" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_BUYER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PWD" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BUYER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="BUYER_ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="BUYER_TEL" Type="varchar" MaxLength="11" />
+          <Property Name="PERMISSIONS" Type="bit" />
+          <Property Name="BUYER_IMAGE_URL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TB_BUYER_COLLECT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COLLECT_TYPE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="COLLECT_ID" Type="int" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_CART">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CART_SHOP_ID" Type="int" Nullable="false" />
+          <Property Name="CART_GOODS_ID" Type="int" Nullable="false" />
+          <Property Name="CART_GOODS_NUM" Type="int" Nullable="false" />
+          <Property Name="CART_USER_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_EVALUATE_GOODS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EVALUATE_SHOP_ID" Type="int" Nullable="false" />
+          <Property Name="GOODS_ID" Type="int" Nullable="false" />
+          <Property Name="EVALUATE_USER_ID" Type="int" />
+          <Property Name="EVALUATE_CONTENT" Type="varchar" MaxLength="140" />
+          <Property Name="EVALUATE_STAR" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_EVALUATE_RIDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RIDER_ID" Type="int" Nullable="false" />
+          <Property Name="EVALUATE_USER_ID" Type="int" />
+          <Property Name="EVALUATE_STAR" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_FLOW">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORDER_ID" Type="int" Nullable="false" />
+          <Property Name="ORDER_STATE_BRFORE" Type="varchar" MaxLength="20" />
+          <Property Name="ORDER_STATE_AFTER" Type="varchar" MaxLength="20" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OPERATION_TIME" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_GOODS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GOODS_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="GOODS_PRICE" Type="float" Nullable="false" />
+          <Property Name="GOODS_TYPE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="GOODS_DESCRIBE" Type="varchar" MaxLength="100" />
+          <Property Name="GOODS_REPERTORY" Type="int" Nullable="false" />
+          <Property Name="GOODS_SHOP_ID" Type="int" Nullable="false" />
+          <Property Name="GOODS_IMAGE_URL" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OPERATION_CONTENT" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OPERATION_TIME" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_ORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORDER_USER_ID" Type="int" Nullable="false" />
+          <Property Name="ORDER_TIME" Type="datetime" Nullable="false" />
+          <Property Name="ORDER_SHOP_ID" Type="int" Nullable="false" />
+          <Property Name="ORDER_RIDER_ID" Type="int" />
+          <Property Name="ORDER_NO" Type="int" Nullable="false" />
+          <Property Name="ORDER_ALLPRICE" Type="int" Nullable="false" />
+          <Property Name="ORDER_STATE" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_ORDER_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORDER_ID" Type="int" Nullable="false" />
+          <Property Name="DETORSER_GOODS_ID" Type="int" Nullable="false" />
+          <Property Name="DETORSER_GOODS_NUM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_RIDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PWD" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RIDER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="BUYER_ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="BUYER_TEL" Type="varchar" MaxLength="11" />
+          <Property Name="PERMISSIONS" Type="bit" />
+          <Property Name="RIDER_IMAGE_URL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TB_SELLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PWD" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SELLER_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="SHOP_ID" Type="int" />
+          <Property Name="BUYER_ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="BUYER_TEL" Type="varchar" MaxLength="11" />
+          <Property Name="PERMISSIONS" Type="bit" />
+          <Property Name="SELLER_IMAGE_URL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TB_SHOP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHOP_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SHOP_ADDRESS" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SHOP_IMAGE_URL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="JANESS_SYSTEM_DBModelStoreContainer">
+          <EntitySet Name="TB_ADMIN" EntityType="Self.TB_ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_BUYER" EntityType="Self.TB_BUYER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_BUYER_COLLECT" EntityType="Self.TB_BUYER_COLLECT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CART" EntityType="Self.TB_CART" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_EVALUATE_GOODS" EntityType="Self.TB_EVALUATE_GOODS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_EVALUATE_RIDER" EntityType="Self.TB_EVALUATE_RIDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_FLOW" EntityType="Self.TB_FLOW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_GOODS" EntityType="Self.TB_GOODS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LOG" EntityType="Self.TB_LOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ORDER" EntityType="Self.TB_ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ORDER_DETAILS" EntityType="Self.TB_ORDER_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_RIDER" EntityType="Self.TB_RIDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_SELLER" EntityType="Self.TB_SELLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_SHOP" EntityType="Self.TB_SHOP" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JANESS_SYSTEM_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_ADMIN">
+          <Key>
+            <PropertyRef Name="ADMIN_ID" />
+          </Key>
+          <Property Name="ADMIN_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADMIN_PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_BUYER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BUYER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BUYER_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BUYER_TEL" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSIONS" Type="Boolean" />
+          <Property Name="BUYER_IMAGE_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_BUYER_COLLECT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COLLECT_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COLLECT_ID" Type="Int32" Nullable="false" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_CART">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CART_SHOP_ID" Type="Int32" Nullable="false" />
+          <Property Name="CART_GOODS_ID" Type="Int32" Nullable="false" />
+          <Property Name="CART_GOODS_NUM" Type="Int32" Nullable="false" />
+          <Property Name="CART_USER_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_EVALUATE_GOODS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EVALUATE_SHOP_ID" Type="Int32" Nullable="false" />
+          <Property Name="GOODS_ID" Type="Int32" Nullable="false" />
+          <Property Name="EVALUATE_USER_ID" Type="Int32" />
+          <Property Name="EVALUATE_CONTENT" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
+          <Property Name="EVALUATE_STAR" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TB_EVALUATE_RIDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RIDER_ID" Type="Int32" Nullable="false" />
+          <Property Name="EVALUATE_USER_ID" Type="Int32" />
+          <Property Name="EVALUATE_STAR" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TB_FLOW">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_ID" Type="Int32" Nullable="false" />
+          <Property Name="ORDER_STATE_BRFORE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER_STATE_AFTER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OPERATION_TIME" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TB_GOODS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GOODS_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GOODS_PRICE" Type="Double" Nullable="false" />
+          <Property Name="GOODS_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GOODS_DESCRIBE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GOODS_REPERTORY" Type="Int32" Nullable="false" />
+          <Property Name="GOODS_SHOP_ID" Type="Int32" Nullable="false" />
+          <Property Name="GOODS_IMAGE_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OPERATION_CONTENT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OPERATION_TIME" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TB_RIDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RIDER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BUYER_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BUYER_TEL" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSIONS" Type="Boolean" />
+          <Property Name="RIDER_IMAGE_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_SELLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SELLER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SHOP_ID" Type="Int32" />
+          <Property Name="BUYER_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BUYER_TEL" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSIONS" Type="Boolean" />
+          <Property Name="SELLER_IMAGE_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_SHOP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHOP_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SHOP_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SHOP_IMAGE_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="JANESS_SYSTEM_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_ADMIN" EntityType="Self.TB_ADMIN" />
+          <EntitySet Name="TB_BUYER" EntityType="Self.TB_BUYER" />
+          <EntitySet Name="TB_BUYER_COLLECT" EntityType="Self.TB_BUYER_COLLECT" />
+          <EntitySet Name="TB_CART" EntityType="Self.TB_CART" />
+          <EntitySet Name="TB_EVALUATE_GOODS" EntityType="Self.TB_EVALUATE_GOODS" />
+          <EntitySet Name="TB_EVALUATE_RIDER" EntityType="Self.TB_EVALUATE_RIDER" />
+          <EntitySet Name="TB_FLOW" EntityType="Self.TB_FLOW" />
+          <EntitySet Name="TB_GOODS" EntityType="Self.TB_GOODS" />
+          <EntitySet Name="TB_LOG" EntityType="Self.TB_LOG" />
+          <EntitySet Name="TB_RIDER" EntityType="Self.TB_RIDER" />
+          <EntitySet Name="TB_SELLER" EntityType="Self.TB_SELLER" />
+          <EntitySet Name="TB_SHOP" EntityType="Self.TB_SHOP" />
+          <EntitySet Name="TB_ORDER" EntityType="JANESS_SYSTEM_DBModel.TB_ORDER" />
+          <EntitySet Name="TB_ORDER_DETAILS" EntityType="JANESS_SYSTEM_DBModel.TB_ORDER_DETAILS" />
+        </EntityContainer>
+        <EntityType Name="TB_ORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="ORDER_TIME" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ORDER_SHOP_ID" Type="Int32" Nullable="false" />
+          <Property Name="ORDER_RIDER_ID" Type="Int32" />
+          <Property Name="ORDER_NO" Type="Int32" Nullable="false" />
+          <Property Name="ORDER_ALLPRICE" Type="Int32" Nullable="false" />
+          <Property Name="ORDER_STATE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_ORDER_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_ID" Type="Int32" Nullable="false" />
+          <Property Name="DETORSER_GOODS_ID" Type="Int32" Nullable="false" />
+          <Property Name="DETORSER_GOODS_NUM" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JANESS_SYSTEM_DBModelStoreContainer" CdmEntityContainer="JANESS_SYSTEM_DBEntities">
+          <EntitySetMapping Name="TB_ADMIN">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_ADMIN">
+              <MappingFragment StoreEntitySet="TB_ADMIN">
+                <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
+                <ScalarProperty Name="ADMIN_PWD" ColumnName="ADMIN_PWD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_BUYER">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_BUYER">
+              <MappingFragment StoreEntitySet="TB_BUYER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="BUYER_NAME" ColumnName="BUYER_NAME" />
+                <ScalarProperty Name="BUYER_ADDRESS" ColumnName="BUYER_ADDRESS" />
+                <ScalarProperty Name="BUYER_TEL" ColumnName="BUYER_TEL" />
+                <ScalarProperty Name="PERMISSIONS" ColumnName="PERMISSIONS" />
+                <ScalarProperty Name="BUYER_IMAGE_URL" ColumnName="BUYER_IMAGE_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_BUYER_COLLECT">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_BUYER_COLLECT">
+              <MappingFragment StoreEntitySet="TB_BUYER_COLLECT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="COLLECT_TYPE" ColumnName="COLLECT_TYPE" />
+                <ScalarProperty Name="COLLECT_ID" ColumnName="COLLECT_ID" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CART">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_CART">
+              <MappingFragment StoreEntitySet="TB_CART">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CART_SHOP_ID" ColumnName="CART_SHOP_ID" />
+                <ScalarProperty Name="CART_GOODS_ID" ColumnName="CART_GOODS_ID" />
+                <ScalarProperty Name="CART_GOODS_NUM" ColumnName="CART_GOODS_NUM" />
+                <ScalarProperty Name="CART_USER_ID" ColumnName="CART_USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_EVALUATE_GOODS">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_EVALUATE_GOODS">
+              <MappingFragment StoreEntitySet="TB_EVALUATE_GOODS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EVALUATE_SHOP_ID" ColumnName="EVALUATE_SHOP_ID" />
+                <ScalarProperty Name="GOODS_ID" ColumnName="GOODS_ID" />
+                <ScalarProperty Name="EVALUATE_USER_ID" ColumnName="EVALUATE_USER_ID" />
+                <ScalarProperty Name="EVALUATE_CONTENT" ColumnName="EVALUATE_CONTENT" />
+                <ScalarProperty Name="EVALUATE_STAR" ColumnName="EVALUATE_STAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_EVALUATE_RIDER">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_EVALUATE_RIDER">
+              <MappingFragment StoreEntitySet="TB_EVALUATE_RIDER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RIDER_ID" ColumnName="RIDER_ID" />
+                <ScalarProperty Name="EVALUATE_USER_ID" ColumnName="EVALUATE_USER_ID" />
+                <ScalarProperty Name="EVALUATE_STAR" ColumnName="EVALUATE_STAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_FLOW">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_FLOW">
+              <MappingFragment StoreEntitySet="TB_FLOW">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+                <ScalarProperty Name="ORDER_STATE_BRFORE" ColumnName="ORDER_STATE_BRFORE" />
+                <ScalarProperty Name="ORDER_STATE_AFTER" ColumnName="ORDER_STATE_AFTER" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="OPERATION_TIME" ColumnName="OPERATION_TIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_GOODS">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_GOODS">
+              <MappingFragment StoreEntitySet="TB_GOODS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GOODS_NAME" ColumnName="GOODS_NAME" />
+                <ScalarProperty Name="GOODS_PRICE" ColumnName="GOODS_PRICE" />
+                <ScalarProperty Name="GOODS_TYPE" ColumnName="GOODS_TYPE" />
+                <ScalarProperty Name="GOODS_DESCRIBE" ColumnName="GOODS_DESCRIBE" />
+                <ScalarProperty Name="GOODS_REPERTORY" ColumnName="GOODS_REPERTORY" />
+                <ScalarProperty Name="GOODS_SHOP_ID" ColumnName="GOODS_SHOP_ID" />
+                <ScalarProperty Name="GOODS_IMAGE_URL" ColumnName="GOODS_IMAGE_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LOG">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_LOG">
+              <MappingFragment StoreEntitySet="TB_LOG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="OPERATION_CONTENT" ColumnName="OPERATION_CONTENT" />
+                <ScalarProperty Name="OPERATION_TIME" ColumnName="OPERATION_TIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_RIDER">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_RIDER">
+              <MappingFragment StoreEntitySet="TB_RIDER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="RIDER_NAME" ColumnName="RIDER_NAME" />
+                <ScalarProperty Name="BUYER_ADDRESS" ColumnName="BUYER_ADDRESS" />
+                <ScalarProperty Name="BUYER_TEL" ColumnName="BUYER_TEL" />
+                <ScalarProperty Name="PERMISSIONS" ColumnName="PERMISSIONS" />
+                <ScalarProperty Name="RIDER_IMAGE_URL" ColumnName="RIDER_IMAGE_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_SELLER">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_SELLER">
+              <MappingFragment StoreEntitySet="TB_SELLER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="SELLER_NAME" ColumnName="SELLER_NAME" />
+                <ScalarProperty Name="SHOP_ID" ColumnName="SHOP_ID" />
+                <ScalarProperty Name="BUYER_ADDRESS" ColumnName="BUYER_ADDRESS" />
+                <ScalarProperty Name="BUYER_TEL" ColumnName="BUYER_TEL" />
+                <ScalarProperty Name="PERMISSIONS" ColumnName="PERMISSIONS" />
+                <ScalarProperty Name="SELLER_IMAGE_URL" ColumnName="SELLER_IMAGE_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_SHOP">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_SHOP">
+              <MappingFragment StoreEntitySet="TB_SHOP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SHOP_NAME" ColumnName="SHOP_NAME" />
+                <ScalarProperty Name="SHOP_ADDRESS" ColumnName="SHOP_ADDRESS" />
+                <ScalarProperty Name="SHOP_IMAGE_URL" ColumnName="SHOP_IMAGE_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ORDER">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_ORDER">
+              <MappingFragment StoreEntitySet="TB_ORDER">
+                <ScalarProperty Name="ORDER_STATE" ColumnName="ORDER_STATE" />
+                <ScalarProperty Name="ORDER_ALLPRICE" ColumnName="ORDER_ALLPRICE" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+                <ScalarProperty Name="ORDER_RIDER_ID" ColumnName="ORDER_RIDER_ID" />
+                <ScalarProperty Name="ORDER_SHOP_ID" ColumnName="ORDER_SHOP_ID" />
+                <ScalarProperty Name="ORDER_TIME" ColumnName="ORDER_TIME" />
+                <ScalarProperty Name="ORDER_USER_ID" ColumnName="ORDER_USER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ORDER_DETAILS">
+            <EntityTypeMapping TypeName="JANESS_SYSTEM_DBModel.TB_ORDER_DETAILS">
+              <MappingFragment StoreEntitySet="TB_ORDER_DETAILS">
+                <ScalarProperty Name="DETORSER_GOODS_NUM" ColumnName="DETORSER_GOODS_NUM" />
+                <ScalarProperty Name="DETORSER_GOODS_ID" ColumnName="DETORSER_GOODS_ID" />
+                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

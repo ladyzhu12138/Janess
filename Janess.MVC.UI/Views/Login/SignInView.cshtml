@@ -1,0 +1,263 @@
+﻿@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link href="~/Content/amazeui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <link href="~/Content/amazeui.css" rel="stylesheet" />
+    <link href="~/Content/dlstyle.css" rel="stylesheet" />
+    <script src="~/Scripts/amazeui.min.js"></script>
+
+
+</head>
+<body>
+
+    <div class="login-boxtitle">
+        <a href="home/demo.html">
+            <img alt="" src="~/Image/logobig.png" />
+        </a>
+    </div>
+
+    <div class="res-banner">
+        <div class="res-main">
+            <div class="login-banner-bg">
+                <span>
+                    <img src="~/Image/big.jpg" />
+                </span>
+            </div>
+            <div class="login-box">
+
+                <div class="am-tabs" data-am-tabs>
+                    <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+                        <li class="am-active">
+                            <a href="tab1">买家</a>
+                        </li>
+                        <li>
+                            <a href="tab2">商家</a>
+                        </li>
+                        <li>
+                            <a href="tab3">骑手</a>
+                        </li>
+                    </ul>
+
+                    <div class="am-tabs-bd">
+                        <div class="am-tab-panel am-active" id="tab1">
+                            <form method="post">
+                                <div class="user-name">
+                                    <label for="Account"><i class="am-icon-lock"></i></label>
+                                    <input type="text" name="account" id="Account" placeholder="输入账号">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="Pwd"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="pwd" id="Pwd" placeholder="输入密码">
+                                </div>
+                            </form>
+                            <div class="login-links">
+                                @*<label for="reader-me">
+                                    <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+                                </label>*@
+                            </div>
+                            <div class="am-cf">
+                                <input type="button" id="btnSignInBuyer" name="" value="登录" class="am-btn am-btn-success am-btn-sm am-fl">
+                                <input type="button" id="btnSignUpBuyer" name="" value="去注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+
+                            </div>
+                        </div>
+                        <div class="am-tab-panel" id="tab2">
+                            <form method="post">
+                                <div class="user-name">
+                                    <label for="Account1"><i class="am-icon-lock"></i></label>
+                                    <input type="text" name="account" id="Account1" placeholder="输入账号">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="Pwd1"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="pwd" id="Pwd1" placeholder="输入密码">
+                                </div>
+                            </form>
+                            <div class="login-links">
+                                @*<label for="reader-me">
+                                    <input id="reader-me1" type="checkbox"> 点击表示您同意商城《服务协议》
+                                </label>*@
+                            </div>
+                            <div class="am-cf">
+                                <input type="button" id="btnSignInSeller" name="" value="登录" class="am-btn am-btn-success am-btn-sm am-fl">
+                                <input type="button" id="btnSignUpSeller" name="" value="去注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+                            </div>
+
+                            <hr>
+                        </div>
+                        <div class="am-tab-panel" id="tab3">
+                            <form method="post">
+                                <div class="user-name">
+                                    <label for="Account2"><i class="am-icon-lock"></i></label>
+                                    <input type="text" name="account" id="Account2" placeholder="输入账号">
+                                </div>
+                                <div class="user-pass">
+                                    <label for="Pwd2"><i class="am-icon-lock"></i></label>
+                                    <input type="password" name="pwd" id="Pwd2" placeholder="输入密码">
+                                </div>
+                            </form>
+                            <div class="login-links">
+                                @*<label for="reader-me">
+                                    <input id="reader-me2" type="checkbox"> 点击表示您同意商城《服务协议》
+                                </label>*@
+                            </div>
+                            <div class="am-cf">
+                                <input type="button" id="btnSignInRider" name="" value="登录" class="am-btn am-btn-success am-btn-sm am-fl">
+                                <input type="button" id="btnSignUpRider" name="" value="去注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+@section myScript{
+    <script>
+        $(function () {
+            //登录注册事件 绑定
+            $("#btnSignUpBuyer").on("click", function () { window.location.href = "/Login/SignUpView"; });
+            $("#btnSignUpSeller").on("click", function () { window.location.href = "/Login/SignUpView"; });
+            $("#btnSignUpRider").on("click", function () { window.location.href = "/Login/SignUpView"; });
+            $("#btnSignInBuyer").on("click", signInBuyer);
+            $("#btnSignInSeller").on("click", signInSeller);
+            $("#btnSignInRider").on("click", signInRider);
+
+            //注册回车提交事件
+            $(document).on("keyup", function (e) {
+                //回车按钮触发 登录事件
+                if (e.keyCode == 13) {
+                    $("#btnSignIn").trigger("click");
+                }
+            });
+        });
+        //登录
+        function signInBuyer() {
+            if ($("#Account").val() == "") {
+                alert("账号不可为空");
+                return;
+            }
+            if ($("#Pwd").val() == "") {
+                alert("密码不可为空");
+                return;
+            }
+            //if (!$("#reader-me").prop("checked")) {
+            //    alert("未同意商场协议");
+            //    return;
+            //}
+            $.post("/Login/SignInBuyer",
+                {
+                    account: $("#Account").val(),
+                    pwd: $("#Pwd").val(),
+                },
+                function (data) {
+                    if (data.Status) {
+                        //alert("登录成功！")
+                        window.location.href = "/Home/Index";
+                        alert(Cookies.get("Name"));
+                    } else {
+                        alert("登录失败！")
+                        alert(data.Msg);
+                    }
+                });
+            return false;
+        }
+        function signInSeller() {
+            if ($("#Account1").val() == "") {
+                alert("账号不可为空");
+                return;
+            }
+            if ($("#Pwd1").val() == "") {
+                alert("密码不可为空");
+                return;
+            }
+            //if (!$("#reader-me1").prop("checked")) {
+            //    alert("未同意商场协议");
+            //    return;
+            //}
+            $.post("/Login/SignInSeller",
+                {
+                    account: $("#Account1").val(),
+                    pwd: $("#Pwd1").val(),
+                },
+                function (data) {
+                    if (data.Status) {
+                        //alert("登录成功！")
+                        window.location.href = "/Home/Index";
+                        alert(Cookies.get("Name"));
+                    } else {
+                        alert("登录失败！")
+                        alert(data.Msg);
+                    }
+                });
+            return false;
+        }
+        function signInRider() {
+            if ($("#Account2").val() == "") {
+                alert("账号不可为空");
+                return;
+            }
+            if ($("#Pwd2").val() == "") {
+                alert("密码不可为空");
+                return;
+            }
+            //if (!$("#reader-me2").prop("checked")) {
+            //    alert("未同意商场协议");
+            //    return;
+            //}
+            $.post("/Login/SignInRider",
+                {
+                    account: $("#Account2").val(),
+                    pwd: $("#Pwd2").val(),
+                },
+                function (data) {
+                    if (data.Status) {
+                        //alert("登录成功！")
+                        window.location.href = "/Rider/HomePageView";
+                        alert(Cookies.get("Name"));
+                    } else {
+                        alert("登录失败！")
+                        alert(data.Msg);
+                    }
+                });
+            return false;
+        }
+    </script>
+}
+@*<div class="login-form">
+        <form>
+            <div class="user-name">
+                <label for="user"><i class="am-icon-user"></i></label>
+                <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+            </div>
+            <div class="form-group">
+                <label for="Account" class="sr-only"></label>
+                <input type="text" class="form-control" name="account" id="Account" placeholder="账号">
+            </div>
+            <div class="form-group">
+                <label for="Pwd" class="sr-only"></label>
+                <input type="password" class="form-control" name="pwd" id="Pwd" placeholder="请输入密码">
+            </div>
+        </form>
+    </div>
+    <div class="am-cf">
+        <input id="btnSignIn" type="button" name="" value="登 录" class="am-btn btn btn-success btn btn-sm">
+        <input id="btnSignUp" type="button" name="" value="注 册" class="am-btn btn btn-primary btn btn-sm">
+    </div>*@

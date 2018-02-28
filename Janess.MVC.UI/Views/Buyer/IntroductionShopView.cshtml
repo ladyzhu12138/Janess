@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "IntroductionShopView";
+    Layout = "~/Views/Shared/_Layout_Buyer.cshtml";
+}
+<input type="hidden" id="userID" value="@ViewBag.BuyerID" />
+<input type="hidden" id="hidName" value="@ViewBag.Name" />
+<input type="hidden" id="shopsId" value="@ViewBag.ShopsId" />
+<div id="content2">
+
+</div>
+<br />
+<div class="am-g am-g-fixed">
+    <div class="am-u-sm-12 am-u-md-12">
+        <div class="search-content">
+            <div class="sort">
+                <li class="first"><a title="综合">综合排序</a></li>
+                <li><a title="销量">销量排序</a></li>
+                <li><a title="价格">价格优先</a></li>
+                <li class="big"><a title="评价" href="#">评价为主</a></li>
+            </div>
+            <div class="clear"></div>
+            <div id="content1">
+
+            </div>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+</div>
+
+@section myScript{
+    <script>
+        $(function () {
+            getShops();
+            getGoods();
+        });
+        function getShops() {
+            $.post("/Buyer/GetShopInfo", { id: $("#shopsId").val() }, function (data) {
+                var arr = data;
+                var html = "";
+                for (var i = 0; i < arr.length; i++) {
+                    var img = "";
+                    if (arr[i].SHOP_IMAGE_URL == null) {
+                        img = "/Image/shop/DefaultShop.jpg";
+                    } else {
+                        img = arr[i].SHOP_IMAGE_URL;
+                    }
+                    html += "<div class='s-item-wrap'>";
+                    html += "<input type='hidden' class='shopsId' value=" + arr[i].ID + ">";
+                    html += "<div class='s-item'>";
+                    html += "<div class='s-pic'><a href='#' class='s-pic-link'>";
+                    html += "<img src=" + img + "  />";
+                    html += "</a></div>";
+                    html += "<div class='s-info'><div class='s-title'><a href='#' title=" + arr[i].SHOP_NAME + ">" + arr[i].SHOP_NAME + "</a></div>";
+                    html += "</div></div></div>";
+                }
+                $("#content2").append(html);
+            })
+        }
+        function getGoods() {
+            $.post("/Buyer/GetShopsInfo", { id: $("#shopsId").val() }, function (data) {
+                var arr = data;
+                var html = "<ul class='am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes'>";
+                for (var i = 0; i < arr.length; i++) {
+                    var img = arr[i].GOODS_IMAGE_URL;
+                    html += "<li class='goToInt'>";//添加类去详情界面
+                    html += "<input type='hidden' class='goodsId' value=" + arr[i].ID + ">";
+                    html += "<div class='i-pic limit'>";
+                    html += "<img src=" + img + " />";
+                    html += "<p class='title fl'>" + arr[i].GOODS_NAME + "</p> ";
+                    html += "<p class='price fl'>";
+                    html += "<b>¥</b>";
+                    html += "<strong>" + arr[i].GOODS_PRICE + "</strong>";
+                    html += "</p>";
+                    html += "<p class='number fl'>";
+                    html += "销量<span>1110</span> ";
+                    html += "</p>";
+                    html += "</div>";
+                    html += "</li>";
+
+                }
+                html += "</ul>";
+                $("#content1").append(html);
+                $(".goToInt").on("click", intorduction);
+                if ($("#hidName").val()) {
+                    $("#loginContainer").hide();
+                    $("#loginContainer1").show();
+                }
+                else {
+                    $("#loginContainer").show();
+                    $("#loginContainer1").hide();
+                }
+            });
+        };
+        function intorduction(evt) {
+            var input = $(evt.currentTarget).children("input");
+            var goodsID = input.val();
+            var url = "/Buyer/IntroductionView?val=" + goodsID;
+            window.location.href = url;
+        };
+    </script>
+}

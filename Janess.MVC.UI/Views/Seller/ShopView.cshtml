@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "ShopView";
+    Layout = "~/Views/Shared/_LayoutSellerIframe.cshtml";
+}
+<style>
+    .form-horizontal {
+        margin-left:220px;
+    }
+</style>
+<h3>店铺信息管理</h3>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="shopID" class="col-sm-2 control-label">店铺ID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="shopID" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="shopName" class="col-sm-2 control-label">店铺名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="shopName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="shopAddress" class="col-sm-2 control-label">店铺地址</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="shopAddress">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-info">修改</button>
+        </div>
+    </div>
+</form>
+<input type="hidden" id="id" value="@ViewBag.ShopID" />
+
+@section myScript{
+      <script>
+          $(function () {
+              loadData();
+              $(".btn-info").on("click", updateShopInfo);
+          })
+
+          //加载数据
+          function loadData() {
+              $.post("/Seller/GetShopByID", { id: $("#id").val() }, function (data) {
+                  var obj = $.getObjFromData(data);
+                  setObj2Form(obj);
+              });
+          }
+
+          //将获取到的对象赋值到页面
+          function setObj2Form(data) {
+              $("#shopID").val(data.ID);
+              $("#shopName").val(data.SHOP_NAME);
+              $("#shopAddress").val(data.SHOP_ADDRESS);
+          }
+
+          function updateShopInfo() {
+              //debugger;
+              var shopID = $("#shopID").val();
+              var shopName = $("#shopName").val();
+              var shopAddress = $("#shopAddress").val();
+
+              $.post("/Seller/UpdateShopInfo",
+                  { ID: shopID, SHOP_NAME: shopName, SHOP_ADDRESS: shopAddress },
+                  function (data) {
+                      if (data) {
+                          layer.msg("修改成功", { icon: 1 });
+                      } else {
+                          layer.msg("修改失败", { icon: 2 });
+                      }
+                  });
+          }
+
+      </script>  
+}

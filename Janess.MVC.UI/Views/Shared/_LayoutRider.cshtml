@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 骑手主页</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        body {
+            padding: 0;
+        }
+        #f1 {
+            padding: 7px 0px 9px;
+            border-top: 2px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @RenderBody()
+        <hr />
+        <footer id="f1">
+            <div>
+                <div>
+                    <p>
+                        <a href="#">Time科技</a>
+                        <b>|</b>
+                        <a href="#">Janess首页</a>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <a href="#">关于Janess</a>
+                        <a href="#">合作伙伴</a>
+                        <a href="#">联系我们</a>
+                        <em>© 2017-2018 Time 版权所有. </em>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/layer/layer.js"></script>
+    @RenderSection("myScript", false)
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 简尚购物</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/layer/theme/default/layer.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        body {
+            padding: 0;
+        }
+
+        html { 
+            overflow-y:hidden;
+        }
+
+        .seller-nav {
+            background: #f6f6f6;
+            width: auto;
+            height: 35px;
+        }
+
+        .seller-name {
+            margin-right: 385px;
+            padding-top: 7px;
+            height: 35px;
+            float: right;
+        }
+
+        .sellerNav {
+            width: auto;
+            height: 50px;
+            background: #008ae5;
+            margin-bottom: 15px;
+        }
+
+            .sellerNav .navbar-header {
+                margin-left: 353px;
+            }
+
+            .sellerNav .navbar-collapse .navbar-right {
+                margin-right: 372px;
+            }
+
+            .sellerNav .sellerNav-first a {
+                color: white;
+            }
+
+            .sellerNav .sellerNav-first .navbar-collapse a:link {
+                color: white;
+            }
+
+            .sellerNav .sellerNav-first .navbar-collapse a:active, a:hover {
+                color: #0073bd;
+            }
+    </style>
+</head>
+<body>
+    <div class="seller-nav">
+        <div class="seller-name" id="sellernameDiv">
+            <span>欢迎您,@ViewBag.Name</span>&nbsp;&nbsp;
+            <a href="/Login/SignInView" hover><span>退出</span></a>
+        </div>
+    </div>
+    <nav class="sellerNav">
+        <div class="sellerNav-first" id="Container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Seller/Index">Janess卖家</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Seller/Index">首页 </a></li>
+                    <li><a href="#">规则中心 </a></li>
+                    <li><a href="#">帮助 </a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">返回简尚首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer">
+            <div class="footer-hd ">
+                <p>
+                    <a href="# ">简尚科技</a>
+                    <b>|</b>
+                    <a href="# ">商城首页</a>
+                    <b>|</b>
+                    <a href="# ">支付宝</a>
+                    <b>|</b>
+                    <a href="# ">物流</a>
+                </p>
+            </div>
+            <div class="footer-bd ">
+                <p>
+                    <a href="# ">关于简尚</a>
+                    <a href="# ">合作伙伴</a>
+                    <a href="# ">联系我们</a>
+                    <a href="# ">网站地图</a>
+                    <em>© 2017-2018 Time 版权所有. </em>
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/layui/layui.all.js"></script>
+    <script src="~/layer/layer.js"></script>
+    @RenderSection("myScript", false)
+</body>
+</html>

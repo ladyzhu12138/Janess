@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "联系我们";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="R1" value="@ViewBag.RiderID" />
+<input type="hidden" id="R2" value="@ViewBag.Name" />
+<!--header-->
+<div class="header">
+    <div class="header-top">
+        <div class="container">
+            <p class="header-para">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">风里雨里，邮箱等你！</font>
+                </font>
+            </p>
+
+            <ul class="sign">
+                <li>
+                    <a href="/Rider/HomePageView">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">欢迎您,@ViewBag.Name（ID：@ViewBag.RiderID）</font>
+                        </font>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Index">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">退出</font>
+                        </font>
+                    </a>
+                </li>
+                @*<li>
+                    <a href="#"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                </li>*@
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="header-bottom-top">
+        <div class="container">
+            @*<div class="search">
+                <input type="text" value="Search website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                <input type="submit" value="">
+            </div>*@
+            <div class="clearfix"> </div>
+            <div class="header-bottom">
+                <div class="logo">
+                    <a href="/Rider/HomePageView">
+                        <img src="~/Image/Rider/grg.png" alt="" />
+                    </a>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li>
+                            <a href="/Rider/HomePageView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">主页</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/AboutView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">关于</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/OrderDeliveredView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">抢单</font>
+                                </font>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Rider/OrderUnfinishedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">未完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/OrderCompletedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">已完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/Rider/ContactUsView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">联系我们</font>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--联系我们-->
+<div class="container">
+    <div class="contact">
+        <div class="col-md-6 send-contact">
+            <h4>Send us message</h4>
+            <form>
+                <div class="grid-contact">
+                    <div class="col-md-6 contact-left">
+                        <p class="your-para"> Name<span>*</span></p>
+                        <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                    </div>
+                    <div class="col-md-6 contact-left">
+                        <p class="your-para"> Email address<span>*</span></p>
+                        <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="subject">
+                    <p class="message-para"> Subject<span>*</span></p>
+                    <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                </div>
+                <p class="message-para">Message<span>*</span></p>
+                <textarea cols="77" rows="6" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"></textarea>
+                <div class="send">
+                    <input type="submit" value="SEND">
+                </div>
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+        <div class="col-md-6 send-contact">
+            <h4>Get in touch</h4>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37494223.23909492!2d103!3d55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x453c569a896724fb%3A0x1409fdf86611f613!2sRussia!5e0!3m2!1sen!2sin!4v1415776049771"></iframe>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<!--footer-->
+<div class="footer">
+    <div class="container">
+        <div class="foter-bottom">
+            <p class="footer-grid"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有©2017-2018.TIME团队保留所有权利。</font></font></p>
+            <div class="nav-top">
+                <ul>
+                    <li><a href="/Rider/HomePageView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主页</font></font></a></li>
+                    <li><a href="/Rider/AboutView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 关于</font></font></a></li>
+                    <li><a href="/Rider/OrderDeliveredView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">抢单</font></font></a></li>
+                    <li><a href="/Rider/OrderUnfinishedView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">未完成订单</font></font></a></li>
+                    <li><a href="/Rider/OrderCompletedView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已完成订单</font></font></a></li>
+                    <li class="active"><a href="/Rider/ContactUsView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系我们</font></font></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+@section myScript{
+    <script>
+        //菜单
+        $("span.menu").click(function () {
+            $(".top-nav ul").slideToggle(500, function () { });
+        });
+    </script>
+}
+

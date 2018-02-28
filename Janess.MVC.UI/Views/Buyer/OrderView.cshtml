@@ -1,0 +1,535 @@
+﻿
+@{
+    ViewBag.Title = "OrderView";
+    Layout = "~/Views/Buyer/PersonAsideView.cshtml";
+}
+
+<div class="user-order">
+
+    <!--标题 -->
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单管理</strong> / <small>Order</small></div>
+    </div>
+    <hr />
+
+    <div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
+
+        <ul class="am-avg-sm-5 am-tabs-nav am-nav am-nav-tabs">
+            <li class="am-active"><a href="#tab1">所有订单</a></li>
+            <li><a href="#tab2">待付款</a></li>
+            <li><a href="#tab3">待发货</a></li>
+            <li><a href="#tab4">待收货</a></li>
+            <li><a href="#tab5">待评价</a></li>
+        </ul>
+        <hr />
+        <div class="order-top">
+                    <div class="th th-item">
+                        <td class="td-inner">商品</td>
+                    </div>
+                    <div class="th th-price">
+                        <td class="td-inner">单价</td>
+                    </div>
+                    <div class="th th-number">
+                        <td class="td-inner">数量</td>
+                    </div>
+                    <div class="th th-operation">
+                        <td class="td-inner">&nbsp;&nbsp;&nbsp;</td>
+                    </div>
+                    <div class="th th-amount">
+                        <td class="td-inner">合计</td>
+                    </div>
+                    <div class="th th-status">
+                        <td class="td-inner">交易状态</td>
+                    </div>
+                </div>
+
+        <div class='am-tabs-bd'>
+            <div class='am-tab-panel am-fade am-in am-active' id='tab1'>
+
+            </div>
+            <div class="am-tab-panel am-fade" id="tab2">
+                
+            </div>
+            <div class="am-tab-panel am-fade" id="tab3">
+                
+            </div>
+            <div class="am-tab-panel am-fade" id="tab4">
+                
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab5">
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+<input type="hidden" id="buyerid" value="@ViewBag.Id" />
+@section myScript{
+    <script>
+        var sum = 0;
+        $(function () {
+            GetAllOrders();
+            GetUnpayOrders();
+            GetUnsendOrders();
+            GetUnsureOrders();
+            GetUnevaluateOrders();
+        });
+
+        function GetAllOrders() {
+            $.post("/Buyer/GetAllOrders", { id: $("#buyerid").val() }, function (data) {
+                var arr = data;
+                var html = '';
+                var multiOrders = "";
+                $.each(arr, function (i, t) {
+                    multiOrders += t.ORDER_NO+",";
+                });
+                multiOrders = multiOrders.substr(0, multiOrders.length - 1);
+                $.post("/Buyer/GetAllDetailOrders", { multi: multiOrders }, function (detailArr) {
+                    generateOrderContent(arr,detailArr);
+                });
+            })
+        };
+
+        function GetUnpayOrders() {
+            $.post("/Buyer/GetUnpayOrders", { id: $("#buyerid").val() }, function (data) {
+                var arr = data;
+                var html = '';
+                var multiOrders = "";
+                $.each(arr, function (i, t) {
+                    //alert(t.ORDER_NO);
+                    multiOrders += t.ORDER_NO + ",";
+                });
+                multiOrders = multiOrders.substr(0, multiOrders.length - 1);
+                $.post("/Buyer/GetAllDetailOrders", { multi: multiOrders }, function (detailArr) {
+                    generateOrderContent2(arr, detailArr);
+                });
+            })
+        };
+
+        function GetUnsendOrders() {
+            
+            $.post("/Buyer/GetUnsendOrders", { id: $("#buyerid").val() }, function (data) {
+                var arr = data;
+                var html = '';
+                var multiOrders = "";
+                $.each(arr, function (i, t) {
+                    multiOrders += t.ORDER_NO + ",";
+                });
+                
+                multiOrders = multiOrders.substr(0, multiOrders.length - 1);
+                $.post("/Buyer/GetUnsendDetailOrders", { multi: multiOrders }, function (detailArr) {
+                    generateOrderContent3(arr, detailArr);
+                });
+            })
+        };
+
+        function GetUnsureOrders() {
+            $.post("/Buyer/GetUnsureOrders", { id: $("#buyerid").val() }, function (data) {
+                var arr = data;
+                var html = '';
+                var multiOrders = "";
+                $.each(arr, function (i, t) {
+                    multiOrders += t.ORDER_NO + ",";
+                });
+                multiOrders = multiOrders.substr(0, multiOrders.length - 1);
+                $.post("/Buyer/GetUnsureDetailOrders", { multi: multiOrders }, function (detailArr) {
+                    generateOrderContent4(arr, detailArr);
+                });
+            })
+        }
+
+        function GetUnevaluateOrders() {
+            $.post("/Buyer/GetUnevaluateOrders", { id: $("#buyerid").val() }, function (data) {
+                var arr = data;
+                var html = '';
+                var multiOrders = "";
+                $.each(arr, function (i, t) {
+                    multiOrders += t.ORDER_NO + ",";
+                });
+                multiOrders = multiOrders.substr(0, multiOrders.length - 1);
+                $.post("/Buyer/GetUnevaluateDetailOrders", { multi: multiOrders }, function (detailArr) {
+                    generateOrderContent5(arr, detailArr);
+                });
+            })
+        }
+
+        //function generateOrderContent(arr, detailArr) {
+
+        //    // 拼订单 
+        //    $.each(arr, function (i, t) {
+        //        var html = t.ORDER_NO;
+        //        $.each(detailArr, function (m, n) {
+        //            if (t.ORDER_NO == n.ORDER_NO) {
+
+        //                html += n.GOODS_NAME;
+        //            }
+        //        });
+        //        alert(html);
+        //    });
+        //}
+        function generateOrderContent(arr, detailArr) {
+            // 拼订单 
+            $.each(arr, function (i, t) {
+                var time = t.ORDER_TIME;
+                time = time.replace("/Date(", "");
+                time = time.replace(")/", "");
+                time = new Date(parseInt(time)).toLocaleString();
+                var html = "<div class='order-main>";
+                html += "<div class='order-list'>";
+                html += "<div class='order-status5'>";
+                html += "<div class='order-title'>";
+                html += "<div class=dd-num'>订单编号：<span class='order_no'>" + t.ORDER_NO;
+                html += "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                html += "<span>成交时间：" + time + "</span>" + "</div>";
+                html += "</div>";
+                $.each(detailArr, function (m, n) {
+                    if (t.ORDER_NO == n.ORDER_NO) {
+                        html += "<div class='order-content'>";
+                        html += "<div class='order-left'>";
+                        html += "<ul class='item-list'>";
+                        html += "<li class='td td-item'>";
+                        html += "<div class='item-pic'>";
+                        html += "<a href='#' class='J_MakePoint'>";
+                        html += "<img src=" + n.GOODS_IMAGE_URL + " class='itempic J_ItemImg' ";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "<div class='item-info'>";
+                        html += "<div class='item-basic-info'>";
+                        html += "<a href='#'>";
+                        html += "<p>" + n.GOODS_NAME + "</p>";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-price'>";
+                        html += "<div class='item-price'>¥" + n.GOODS_PRICE + "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-number'>";
+                        html += "<div class='item-number'>";
+                        html += "<span>×</span>" + n.DETORSER_GOODS_NUM;
+                        html += "</div>";
+                        html += "</li>";
+                        html += "</ul>";
+                        html += "<ul class='item-list'>";
+                        html += "</div>";
+
+                        sum += n.GOODS_PRICE * n.DETORSER_GOODS_NUM;
+                    }
+                });
+                html += "<div class='order-right'>";
+                html += "<li class='td td-amount'>";
+                html += "<div class='item-amount'>合计：" + sum+"元";
+                html += "</div>";
+                html += "</li>";
+                html += "<div class='move-right'>";
+                html += "<li class='td td-status'>";
+                html += "<div class='item-status'>";
+                html += "<p class='Mystatus'>" + t.ORDER_STATE + "</p>";
+                html += "</div>";
+                html += "</li>";
+                html += "<li class='td td-change'>";
+                html += "</li>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                $("#tab1").append(html);
+
+                sum = 0;
+            });
+        }
+
+        function generateOrderContent2(arr, detailArr) {
+            // 拼订单 
+            $.each(arr, function (i, t) {
+                var time = t.ORDER_TIME;
+                time = time.replace("/Date(", "");
+                time = time.replace(")/", "");
+                time = new Date(parseInt(time)).toLocaleString();
+                var html = "<div class='order-main>";
+                html += "<div class='order-list'>";
+                html += "<div class='order-status5'>";
+                html += "<div class='order-title'>";
+                html += "<div class=dd-num'>订单编号：<span class='order_no'>" + t.ORDER_NO;
+                html += "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                html += "<span>成交时间：" + time + "</span>" + "</div>";
+                html += "</div>";
+                $.each(detailArr, function (m, n) {
+                    if (t.ORDER_NO == n.ORDER_NO) {
+                        html += "<div class='order-content'>";
+                        html += "<div class='order-left'>";
+                        html += "<ul class='item-list'>";
+                        html += "<li class='td td-item'>";
+                        html += "<div class='item-pic'>";
+                        html += "<a href='#' class='J_MakePoint'>";
+                        html += "<img src=" + n.GOODS_IMAGE_URL + " class='itempic J_ItemImg' ";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "<div class='item-info'>";
+                        html += "<div class='item-basic-info'>";
+                        html += "<a href='#'>";
+                        html += "<p>" + n.GOODS_NAME + "</p>";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-price'>";
+                        html += "<div class='item-price'>¥" + n.GOODS_PRICE + "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-number'>";
+                        html += "<div class='item-number'>";
+                        html += "<span>×</span>" + n.DETORSER_GOODS_NUM;
+                        html += "</div>";
+                        html += "</li>";
+                        html += "</ul>";
+                        html += "<ul class='item-list'>";
+                        html += "</div>";
+
+                        sum += n.GOODS_PRICE * n.DETORSER_GOODS_NUM;
+                    }
+                });
+                html += "<div class='order-right'>";
+                html += "<li class='td td-amount'>";
+                html += "<div class='item-amount'>合计：" + sum + "元";
+                html += "</div>";
+                html += "</li>";
+                html += "<div class='move-right'>";
+                html += "<li class='td td-status'>";
+                html += "<div class='item-status'>";
+                html += "<p class='Mystatus'>" + t.ORDER_STATE + "</p>";
+                html += "</div>";
+                html += "</li>";
+                html += "<li class='td td-change'>";
+                html += "</li>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                $("#tab2").append(html);
+                sum = 0;
+            });
+        }
+
+        function generateOrderContent3(arr, detailArr) {
+            // 拼订单 
+            $.each(arr, function (i, t) {
+                var time = t.ORDER_TIME;
+                time = time.replace("/Date(", "");
+                time = time.replace(")/", "");
+                time = new Date(parseInt(time)).toLocaleString();
+                var html = "<div class='order-main>";
+                html += "<div class='order-list'>";
+                html += "<div class='order-status5'>";
+                html += "<div class='order-title'>";
+                html += "<div class=dd-num'>订单编号：<span class='order_no'>" + t.ORDER_NO;
+                html += "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                html += "<span>成交时间：" + time + "</span>" + "</div>";
+                html += "</div>";
+                $.each(detailArr, function (m, n) {
+                    if (t.ORDER_NO == n.ORDER_NO) {
+                        html += "<div class='order-content'>";
+                        html += "<div class='order-left'>";
+                        html += "<ul class='item-list'>";
+                        html += "<li class='td td-item'>";
+                        html += "<div class='item-pic'>";
+                        html += "<a href='#' class='J_MakePoint'>";
+                        html += "<img src=" + n.GOODS_IMAGE_URL + " class='itempic J_ItemImg' ";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "<div class='item-info'>";
+                        html += "<div class='item-basic-info'>";
+                        html += "<a href='#'>";
+                        html += "<p>" + n.GOODS_NAME + "</p>";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-price'>";
+                        html += "<div class='item-price'>¥" + n.GOODS_PRICE + "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-number'>";
+                        html += "<div class='item-number'>";
+                        html += "<span>×</span>" + n.DETORSER_GOODS_NUM;
+                        html += "</div>";
+                        html += "</li>";
+                        html += "</ul>";
+                        html += "<ul class='item-list'>";
+                        html += "</div>";
+                        sum += n.GOODS_PRICE * n.DETORSER_GOODS_NUM;
+                    }
+                });
+                html += "<div class='order-right'>";
+                html += "<li class='td td-amount'>";
+                html += "<div class='item-amount'>合计：" + sum + "元";
+                html += "</div>";
+                html += "</li>";
+                html += "<div class='move-right'>";
+                html += "<li class='td td-status'>";
+                html += "<div class='item-status'>";
+                html += "<p class='Mystatus'>" + t.ORDER_STATE + "</p>";
+                html += "</div>";
+                html += "</li>";
+                html += "<li class='td td-change'>";
+                html += "</li>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                $("#tab3").append(html);
+                sum = 0;
+            });
+        }
+
+        function generateOrderContent4(arr, detailArr) {
+            // 拼订单 
+            $.each(arr, function (i, t) {
+                var time = t.ORDER_TIME;
+                time = time.replace("/Date(", "");
+                time = time.replace(")/", "");
+                time = new Date(parseInt(time)).toLocaleString();
+                var html = "<div class='order-main>";
+                html += "<div class='order-list'>";
+                html += "<div class='order-status5'>";
+                html += "<div class='order-title'>";
+                html += "<div class=dd-num'>订单编号：<span class='order_no'>" + t.ORDER_NO;
+                html += "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                html += "<span>成交时间：" + time + "</span>" + "</div>";
+                html += "</div>";
+                $.each(detailArr, function (m, n) {
+                    if (t.ORDER_NO == n.ORDER_NO) {
+                        html += "<div class='order-content'>";
+                        html += "<div class='order-left'>";
+                        html += "<ul class='item-list'>";
+                        html += "<li class='td td-item'>";
+                        html += "<div class='item-pic'>";
+                        html += "<a href='#' class='J_MakePoint'>";
+                        html += "<img src=" + n.GOODS_IMAGE_URL + " class='itempic J_ItemImg' ";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "<div class='item-info'>";
+                        html += "<div class='item-basic-info'>";
+                        html += "<a href='#'>";
+                        html += "<p>" + n.GOODS_NAME + "</p>";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-price'>";
+                        html += "<div class='item-price'>¥" + n.GOODS_PRICE + "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-number'>";
+                        html += "<div class='item-number'>";
+                        html += "<span>×</span>" + n.DETORSER_GOODS_NUM;
+                        html += "</div>";
+                        html += "</li>";
+                        html += "</ul>";
+                        html += "<ul class='item-list'>";
+                        html += "</div>";
+                        sum += n.GOODS_PRICE * n.DETORSER_GOODS_NUM;
+                    }
+                });
+                html += "<div class='order-right'>";
+                html += "<li class='td td-amount'>";
+                html += "<div class='item-amount'>合计：" + sum + "元";
+                html += "</div>";
+                html += "</li>";
+                html += "<div class='move-right'>";
+                html += "<li class='td td-status'>";
+                html += "<div class='item-status'>";
+                html += "<p class='Mystatus'>" + t.ORDER_STATE + "</p>";
+                html += "</div>";
+                html += "</li>";
+                html += "<li class='td td-change'>";
+                html += "</li>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                $("#tab4").append(html);
+                sum = 0;
+            });
+        }
+
+        function generateOrderContent5(arr, detailArr) {
+            // 拼订单 
+            $.each(arr, function (i, t) {
+                var time = t.ORDER_TIME;
+                time = time.replace("/Date(", "");
+                time = time.replace(")/", "");
+                time = new Date(parseInt(time)).toLocaleString();
+                var html = "<div class='order-main>";
+                html += "<div class='order-list'>";
+                html += "<div class='order-status5'>";
+                html += "<div class='order-title'>";
+                html += "<div class=dd-num'>订单编号：<span class='order_no'>" + t.ORDER_NO;
+                html += "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                html += "<span>成交时间：" + time + "</span>" + "</div>";
+                html += "</div>";
+                $.each(detailArr, function (m, n) {
+                    if (t.ORDER_NO == n.ORDER_NO) {
+                        html += "<div class='order-content'>";
+                        html += "<div class='order-left'>";
+                        html += "<ul class='item-list'>";
+                        html += "<li class='td td-item'>";
+                        html += "<div class='item-pic'>";
+                        html += "<a href='#' class='J_MakePoint'>";
+                        html += "<img src=" + n.GOODS_IMAGE_URL + " class='itempic J_ItemImg' ";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "<div class='item-info'>";
+                        html += "<div class='item-basic-info'>";
+                        html += "<a href='#'>";
+                        html += "<p>" + n.GOODS_NAME + "</p>";
+                        html += "</a>";
+                        html += "</div>";
+                        html += "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-price'>";
+                        html += "<div class='item-price'>¥" + n.GOODS_PRICE + "</div>";
+                        html += "</li>";
+                        html += "<li class='td td-number'>";
+                        html += "<div class='item-number'>";
+                        html += "<span>×</span>" + n.DETORSER_GOODS_NUM;
+                        html += "</div>";
+                        html += "</li>";
+                        html += "</ul>";
+                        html += "<ul class='item-list'>";
+                        html += "</div>";
+                        sum += n.GOODS_PRICE * n.DETORSER_GOODS_NUM;
+                    }
+                });
+                html += "<div class='order-right'>";
+                html += "<li class='td td-amount'>";
+                html += "<div class='item-amount'>合计：" + sum + "元";
+                html += "</div>";
+                html += "</li>";
+                html += "<div class='move-right'>";
+                html += "<li class='td td-status'>";
+                html += "<div class='item-status'>";
+                html += "<p class='Mystatus'>" + t.ORDER_STATE + "</p>";
+                html += "</div>";
+                html += "</li>";
+                html += "<li class='td td-change'>";
+                html += "</li>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                $("#tab5").append(html);
+                sum = 0;
+            });
+        }
+
+    </script>
+}

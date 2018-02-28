@@ -1,0 +1,796 @@
+﻿
+@{
+    ViewBag.Title = "简尚";
+    Layout = "~/Views/Shared/_Layout_Home.cshtml";
+}
+@* 首页广告 *@
+<div class="banner">
+    <!--轮播 -->
+    <div class="am-slider am-slider-default scoll" data-am-flexslider=data-am-flexslider id="demo-slider-0">
+        <ul class="am-slides">
+            <li class="banner1"><img src="~/Image/ad5.jpg" /></li>
+            <li class="banner2"><img src="~/Image/ad6.jpg" /></li>
+            <li class="banner3"><img src="~/Image/ad7.jpg" /></li>
+            <li class="banner4"><img src="~/Image/ad8.jpg" /></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+
+@* 产品分类 *@
+<div class="shopNav">
+    <div class="slideall">
+        <div class="long-title"><span class="all-goods">全部分类</span></div>
+        <!--侧边导航 -->
+        <div id="nav" class="navfull">
+            <div class="area clearfix">
+                <div class="category-content" id="guide_2">
+                    <div class="category">
+                        <ul class="category-list" id="js_climit_li">
+                            <li class="appliance js_toggle relative first">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/cake.png" /></i><a class="ml-22" title="点心">点心/食品</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="食品">食品</span></dt>
+                                                        <dd><a title="苹果" ><span>苹果</span></a></dd>
+                                                        <dd><a title="柠檬" ><span>柠檬</span></a></dd>
+                                                        <dd><a title="芒果" ><span>芒果</span></a></dd>
+                                                        <dd><a title="橙子" ><span>橙子</span></a></dd>
+                                                        <dd><a title="鸭脖" ><span>鸭脖</span></a></dd>
+                                                        <dd><a title="碧根果" ><span>碧根果</span></a></dd>
+                                                        <dd><a title="鱼豆腐" ><span>鱼豆腐</span></a></dd>
+                                                        <dd><a title="松子" ><span>松子</span></a></dd>
+                                                        <dd><a title="腰果" ><span>腰果</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">点心</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="呵官方旗舰店" ><span class="red">呵官方旗舰店</span></a></dd>
+                                                        <dd><a  title="格瑞旗舰店" ><span>格瑞旗舰店</span></a></dd>
+                                                        <dd><a  title="飞彦大厂直供" ><span class="red">飞彦大厂直供</span></a></dd>
+                                                        <dd><a  title="红e·艾菲妮" ><span>红e·艾菲妮</span></a></dd>
+                                                        <dd><a  title="本真旗舰店" ><span class="red">本真旗舰店</span></a></dd>
+                                                        <dd><a  title="杭派女装批发网" ><span class="red">杭派女装批发网</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/cookies.png" /></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="饼干">饼干</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="薯片">薯片</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">虾条</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="YYKCLOT" ><span class="red">YYKCLOT</span></a></dd>
+                                                        <dd><a  title="池氏品牌男装" ><span class="red">池氏品牌男装</span></a></dd>
+                                                        <dd><a  title="男装日志" ><span>男装日志</span></a></dd>
+                                                        <dd><a  title="索比诺官方旗舰店" ><span>索比诺官方旗舰店</span></a></dd>
+                                                        <dd><a  title="onTTno傲徒" ><span class="red">onTTno傲徒</span></a></dd>
+                                                        <dd><a  title="玛狮路男装旗舰店" ><span>玛狮路男装旗舰店</span></a></dd>
+                                                        <dd><a  title="劳威特品牌男装" ><span>劳威特品牌男装</span></a></dd>
+                                                        <dd><a  title="卡斯郎世家批发城" ><span class="red">卡斯郎世家批发城</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/meat.png" /></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="猪肉脯">猪肉脯</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="牛肉丝">牛肉丝</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="小香肠">小香肠</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="花颜巧语 " ><span class="red">花颜巧语 </span></a></dd>
+                                                        <dd><a  title="糖衣小屋" ><span>糖衣小屋</span></a></dd>
+                                                        <dd><a  title="卡拉迪克  " ><span class="red">卡拉迪克  </span></a></dd>
+                                                        <dd><a  title="暖春童话 " ><span>暖春童话 </span></a></dd>
+                                                        <dd><a  title="华盛童装批发行 " ><span>华盛童装批发行 </span></a></dd>
+                                                        <dd><a  title="奈仕华童装旗舰店" ><span>奈仕华童装旗舰店</span></a></dd>
+                                                        <dd><a  title="斑蒂尼BONDYNI" ><span class="red">斑蒂尼BONDYNI</span></a></dd>
+                                                        <dd><a  title="猫儿朵朵 " ><span>猫儿朵朵 </span></a></dd>
+                                                        <dd><a  title="童衣阁" ><span class="red">童衣阁</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/bamboo.png" /></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="豆干">豆干</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="干笋">干笋</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="鸭脖">鸭脖</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="歌芙品牌旗舰店" ><span class="red">歌芙品牌旗舰店</span></a></dd>
+                                                        <dd><a  title="爱丝蓝内衣厂" ><span>爱丝蓝内衣厂</span></a></dd>
+                                                        <dd><a  title="香港优蓓尔防辐射" ><span>香港优蓓尔防辐射</span></a></dd>
+                                                        <dd><a  title="蓉莉娜内衣批发" ><span>蓉莉娜内衣批发</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/nut.png" /></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">坚果</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">锅巴</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="呵呵嘿官方旗舰店" ><span class="red">呵呵嘿官方旗舰店</span></a></dd>
+                                                        <dd><a  title="格瑞旗舰店" ><span>格瑞旗舰店</span></a></dd>
+                                                        <dd><a  title="飞彦大厂直供" ><span class="red">飞彦大厂直供</span></a></dd>
+                                                        <dd><a  title="红e·艾菲妮" ><span>红e·艾菲妮</span></a></dd>
+                                                        <dd><a  title="本真旗舰店" ><span class="red">本真旗舰店</span></a></dd>
+                                                        <dd><a  title="杭派女装批发网" ><span class="red">杭派女装批发网</span></a></dd>
+                                                        <dd><a  title="华伊阁旗舰店" ><span>华伊阁旗舰店</span></a></dd>
+                                                        <dd><a  title="独家折扣旗舰店" ><span>独家折扣旗舰店</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/candy.png" /></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="糖果">糖果</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蜜饯">蜜饯</span></dt>
+                                                        <dd><a title="猕猴桃干" ><span>猕猴桃干</span></a></dd>
+                                                        <dd><a title="糖樱桃" ><span>糖樱桃</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="YYKCLOT" ><span class="red">YYKCLOT</span></a></dd>
+                                                        <dd><a  title="池氏品牌男装" ><span class="red">池氏品牌男装</span></a></dd>
+                                                        <dd><a  title="男装日志" ><span>男装日志</span></a></dd>
+                                                        <dd><a  title="索比诺官方旗舰店" ><span>索比诺官方旗舰店</span></a></dd>
+                                                        <dd><a  title="onTTno傲徒"  r><span class="red">onTTno傲徒</span></a></dd>
+                                                        <dd><a  title="卡斯郎世家批发城" ><span class="red">卡斯郎世家批发城</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/chocolate.png" /></i><a class="ml-22" title="巧克力">巧克力</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">巧克力</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">果冻</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="花颜巧语 " ><span class="red">花颜巧语 </span></a></dd>
+                                                        <dd><a  title="糖衣小屋" ><span>糖衣小屋</span></a></dd>
+                                                        <dd><a  title="卡拉迪克  " ><span class="red">卡拉迪克  </span></a></dd>
+                                                        <dd><a  title="暖春童话 " ><span>暖春童话 </span></a></dd>
+                                                        <dd><a  title="华盛童装批发行 " ><span>华盛童装批发行 </span></a></dd>
+                                                        <dd><a  title="奈仕华童装旗舰店" ><span>奈仕华童装旗舰店</span></a></dd>
+                                                        <dd><a  title="斑蒂尼BONDYNI" ><span class="red">斑蒂尼BONDYNI</span></a></dd>
+                                                        <dd><a  title="童衣阁" ><span class="red">童衣阁</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/fish.png" /></i><a class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="海带丝">海带丝</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="小鱼干">小鱼干</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="鱿鱼丝">鱿鱼丝</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        @*删除*@
+                                                        <dd><a  title="歌芙品牌旗舰店" ><span class="red">歌芙品牌旗舰店</span></a></dd>
+                                                        <dd><a  title="爱丝蓝内衣厂" ><span>爱丝蓝内衣厂</span></a></dd>
+                                                        <dd><a  title="炫点服饰" ><span>炫点服饰</span></a></dd>
+                                                        <dd><a  title="雪茵美内衣厂批发" ><span>雪茵美内衣厂批发</span></a></dd>
+                                                        <dd><a  title="金钻夫人" ><span>金钻夫人</span></a></dd>
+                                                        <dd><a  title="伊美莎内衣" ><span class="red">伊美莎内衣</span></a></dd>
+                                                        <dd><a  title="粉客内衣旗舰店" ><span>粉客内衣旗舰店</span></a></dd>
+                                                        <dd><a  title="泽芳行旗舰店" ><span>泽芳行旗舰店</span></a></dd>
+                                                        <dd><a  title="彩婷" ><span class="red">彩婷</span></a></dd>
+                                                        <dd><a  title="黛兰希" ><span>黛兰希</span></a></dd>
+                                                        <dd><a  title="香港优蓓尔防辐射" ><span>香港优蓓尔防辐射</span></a></dd>
+                                                        <dd><a  title="蓉莉娜内衣批发" ><span>蓉莉娜内衣批发</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/tea.png" /></i><a class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">蛋糕</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">点心</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        <dd><a title="今生只围你"  ><span>今生只围你</span></a></dd>
+                                                        <dd><a title="忆佳人"  ><span class="red">忆佳人</span></a></dd>
+                                                        <dd><a title="斐洱普斯"  ><span class="red">斐洱普斯</span></a></dd>
+                                                        <dd><a title="聚百坊"  ><span class="red">聚百坊</span></a></dd>
+                                                        <dd><a title="朵朵棉织直营店"  ><span>朵朵棉织直营店</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative last">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="~/Image/package.png" /></i><a class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
+                                    <em>&gt;</em>
+                                </div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="大包装">大包装</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="两件套">两件套</span></dt>
+                                                        <dd><a title="蒸蛋糕" ><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" ><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" ><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" ><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" ><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" ><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" ><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" ><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" ><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span>实力商家</span></dt>
+                                                        <dd><a title="琳琅鞋业"  ><span>琳琅鞋业</span></a></dd>
+                                                        <dd><a title="宏利鞋业"  ><span>宏利鞋业</span></a></dd>
+                                                        <dd><a title="比爱靓点鞋业"  ><span>比爱靓点鞋业</span></a></dd>
+                                                        <dd><a title="浪人怪怪"  ><span>浪人怪怪</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--走马灯 -->
+
+        <div class="marqueen">
+            <span class="marqueen-title">商城头条</span>
+            <div class="demo">
+                <div class="mod-vip" style="width:250px">
+                    <div class="m-baseinfo">
+                        <a href="../person/index.html">
+                            @* 跳转至个人信息界面 *@
+                            <img src="~/Image/getAvatar.do.jpg" />
+                        </a>
+                        <em id="Name">
+                            Hi,<span class="s-name">小叮当</span>
+                            <a ><p>点击更多优惠活动</p></a>
+                        </em>
+                        <em id="Name1">
+                            Hi,<span class="s-name">@ViewBag.Name</span>
+                            <a ><p>点击更多优惠活动</p></a>
+                        </em>
+                    </div>
+                    @*登录后进行调整*@
+                    <div class="member-logout" id="loginDiv">
+                        <a class="am-btn-warning btn" href="/Login/SignInView">登录</a>
+                        <a class="am-btn-warning btn" href="/Login/SignUpView">注册</a>
+                    </div>
+                    <div class="member-login" id="infoDiv">
+                        <a ><strong>0</strong>待收货</a>
+                        <a ><strong>0</strong>待发货</a>
+                        <a ><strong>0</strong>待付款</a>
+                        <a ><strong>0</strong>待评价</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="advTip"><img src="~/Image/advTip.jpg" /></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+@* 部分优秀商品展示 *@
+<div class="shopMainbg">
+    <div class="shopMain" id="shopmain">
+
+        <!--热门活动 -->
+
+        <div class="am-container activity ">
+            <div class="shopTitle ">
+                <h4>活动</h4>
+                <h3>每期活动 优惠享不停 </h3>
+                <span class="more ">
+                    <a class="more-link " href="# ">全部活动</a>
+                </span>
+            </div>
+
+            <div class="am-g am-g-fixed ">
+                <div class="am-u-sm-3 ">
+                    <div class="icon-sale one "></div>
+                    <h4>秒杀</h4>
+                    <div class="activityMain ">
+                        @*<img src="~/Image/activity1.jpg " /></img>*@
+                    </div>
+                    <div class="info ">
+                        @*<h3>春节送礼优选</h3>*@
+                    </div>
+                </div>
+
+                <div class="am-u-sm-3 ">
+                    <div class="icon-sale two "></div>
+                    <h4>特惠</h4>
+                    <div class="activityMain ">
+                        @*<img src="~/Image/activity2.jpg " /></img>*@
+                    </div>
+                    <div class="info ">
+                        @*<h3>春节送礼优选</h3>*@
+                    </div>
+                </div>
+
+                <div class="am-u-sm-3 ">
+                    <div class="icon-sale three "></div>
+                    <h4>团购</h4>
+                    <div class="activityMain ">
+                        @*<img src="~/Image/activity3.jpg " /></img>*@
+                    </div>
+                    <div class="info ">
+                        @*<h3>春节送礼优选</h3>*@
+                    </div>
+                </div>
+
+                <div class="am-u-sm-3 last ">
+                    <div class="icon-sale "></div>
+                    <h4>超值</h4>
+                    <div class="activityMain ">
+                        @*<img src="~/Image/activity.jpg " /></img>*@
+                    </div>
+                    <div class="info ">
+                        @*<h3>春节送礼优选</h3>*@
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="clear "></div>
+
+
+        <div class="clear "></div>
+
+
+    </div>
+</div>
+<input type="hidden" id="hidName" value="@ViewBag.Name" />
+
+
+@section myScript{
+    <!--轮播 -->
+    <script type="text/javascript">
+        $(function () {
+            getOneImage();
+            $("li").hover(function () {
+                $(".category-content .category-list li.first .menu-in").css("display", "none");
+                $(".category-content .category-list li.first").removeClass("hover");
+                $(this).addClass("hover");
+                $(this).children("div.menu-in").css("display", "block")
+            }, function () {
+                $(this).removeClass("hover")
+                $(this).children("div.menu-in").css("display", "none")
+            });
+            setInterval('autoScroll(".demo")', 3000);
+            hideen();
+            $("dd").on("click",goToSearch);
+
+        });
+
+        function goToSearch(evt)
+        {
+            var val = $(evt.currentTarget).children("a");
+            var title = val.attr('title');
+
+            var searchVal = title;
+                var url = "/Buyer/SearchView?val=" + searchVal;
+                window.location.href = url;
+        }
+        function hideen() {
+            if ($("#hidName").val()) {
+                $("#loginContainer").hide();
+                $("#loginContainer1").show();
+                $("#Name").hide();
+                $("#Name1").show();
+                $("#loginDiv").hide();
+                $("#infoDiv").show();
+                $.post("/Login/CheckSellerName", { Seller_Name: $("#hidName").val() },
+                function (data) {
+                    if (data) {
+                        $("#shopDiv").show();
+                    } else {
+                        $("#shopDiv").hide();
+                    }
+                });
+            } else {
+                $("#loginContainer").show();
+                $("#loginContainer1").hide();
+                $("#Name").show();
+                $("#Name1").hide();
+                $("#message").hide();
+                $("#wrap").hide();
+            }
+        }
+        function getOneImage() {
+            $.post("/Home/GetGoods", {}, function (data) {
+                var arr = data;
+                for (var i = 0; i < 4; i++) {
+                    var img = arr[i].GOODS_IMAGE_URL;
+                    var html = "<img src=" + img + " />";
+                    html += "<input type='hidden' class='goodsId' value=" + arr[i].ID + ">";
+                    $(".activityMain").eq(i).html(html);
+                    var html1 = "<h3>" + arr[i].GOODS_NAME + "</h3>"
+                    $(".info").eq(i).html(html1);
+                }
+                
+                $(".activityMain").on("click", goToInt);
+            });
+        };
+
+        (function () {
+            $('.am-slider').flexslider();
+        });
+
+        function autoScroll(obj) {
+            $(obj).find("ul").animate({
+                marginTop: "-39px"
+            }, 500, function () {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            })
+        }
+        function goToInt(evt) {
+            var input = $(evt.currentTarget).children("input");
+            var goodsID = input.val();
+            //alert(goodsID)
+            var url = "/Buyer/IntroductionView?val=" + goodsID;
+            window.location.href = url;
+        }
+    </script>
+}

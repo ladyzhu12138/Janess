@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "GoodsView";
+    Layout = "~/Views/Shared/_LayoutSellerIframe.cshtml";
+}
+<style>
+    .form-inline {
+        margin-left: 325.5px;
+        margin-bottom: 50px;
+    }
+
+    .row .col-md-3 {
+        padding: 0px;
+        height: 270px;
+        width: 25%;
+        margin-left: 15px;
+        margin-right: 2%;
+        margin-bottom: 30px;
+        float: left;
+        border: 1px solid #E4EAEE;
+    }
+
+    .top {
+        width: 100%;
+        height: 85%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .buttom {
+        width: 100%;
+        height: 15%;
+    }
+
+    .buttom-left {
+        width: 50%;
+        height: 100%;
+        float: left;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .buttom-right {
+        width: 50%;
+        height: 100%;
+        float: right;
+        padding-left: 40px;
+        padding-top: 10px;
+    }
+</style>
+<form class="form-inline">
+    <div class="form-group">
+        <input type="text" class="form-control" id="goodsKeyword" placeholder="商品关键词">
+    </div>
+    <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+</form>
+<div class="row" id="content"></div>
+<input type="hidden" id="shopID" value="@ViewBag.ShopID" />
+<input type="hidden" id="imageUrl" value="@ViewBag.ImageUrl" />
+
+@section myScript{
+    <script>
+        $(function () {
+            getGoods();
+
+            $(".form-inline .btn-info").on("click", searchGoods);
+        });
+
+        //根据店铺ID返回所有商品信息
+        function getGoods() {
+            $.post("/Seller/GetGoodsInfoByShopID",
+                { shopID: $("#shopID").val() },
+                function (data) {
+                    var arr = $.getObjFromData(data);
+                    for (var i = 0; i < arr.length; i++) {
+                        var html = "";
+                        var img = arr[i].GOODS_IMAGE_URL;
+                        html += "<div class='col-md-3'><div class='top'>";
+                        html += "<img src='" + img + "'/>";
+                        html += "</div>";
+                        html += "<div class='buttom'><div class='buttom-left'><span>" + arr[i].GOODS_NAME + "</span></div>";
+                        html += "<div class='buttom-right'><a href='#' class='updateGoods'>修改</a>&nbsp;&nbsp;<a href='#' class='delGoods'>删除</a></div></div><input type='hidden' class='goodsID' value='" + arr[i].ID + "' /><input type='hidden' class='goodsImage' value='" + arr[i].GOODS_IMAGE_URL + "' /></div>"
+                        $("#content").append(html);
+                    }
+                    bindTableEvt();
+                });
+        };
+
+        //根据店铺ID、搜索关键词返回所有商品信息
+        function searchGoods() {
+            var keyWord = $("#goodsKeyword").val();
+
+            $.post("/Seller/SearchGoods",
+                {
+                    shopID: $("#shopID").val(),
+                    keyWord: keyWord
+                },
+                function (data) {
+                    $('#content').html("");
+                    var arr = $.getObjFromData(data);
+                    for (var i = 0; i < arr.length; i++) {
+                        var html = "";
+                        var img = arr[i].GOODS_IMAGE_URL;
+                        html += "<div class='col-md-3'><div class='top'>";
+                        html += "<img src='" + img + "'/>";
+                        html += "</div>";
+                        html += "<div class='buttom'><div class='buttom-left'><span>" + arr[i].GOODS_NAME + "</span></div>";
+                        html += "<div class='buttom-right'><a href='#' class='updateGoods'>修改</a>&nbsp;&nbsp;<a href='#' class='delGoods'>删除</a></div></div><input type='hidden' class='goodsID' value='" + arr[i].ID + "' /><input type='hidden' class='goodsImage' value='" + arr[i].GOODS_IMAGE_URL + "' /></div>"
+                        $("#content").append(html);
+                    }
+                    bindTableEvt();
+                });
+        }
+
+        //修改商品信息
+        function updateGoods(evt) {
+            //debugger;
+            var div = $(evt.currentTarget).closest(".col-md-3");
+            var goodsID = div.find("input:hidden.goodsID").val();
+            var imageUrl = div.find("input:hidden.goodsImage").val();
+
+            var url = "/Seller/EditGoodsView?id=" + goodsID + "&url=" + imageUrl;
+
+            window.location.href = url;
+        }
+
+        //删除商品
+        function delGoods(evt) {
+            //debugger;
+            parent.layer.confirm('是否确认删除？', { icon: 3, title: '提示' }, function (index) {
+                var div = $(evt.currentTarget).closest(".col-md-3");
+                var goodsID = div.find("input:hidden").val();
+                $.post("/Seller/RemoveGoods"
+                    , { id: goodsID }
+                    , function (resp) {
+                        if (resp) {
+                            layer.msg('删除成功', { icon: 1 });
+                        } else {
+                            layer.msg('删除失败，请联系管理员', { icon: 2 });
+                        }
+                        $('#content').html("");
+                        getGoods();
+                        parent.layer.close(index);
+                    });
+                parent.layer.close(index);
+            });
+        }
+
+        function bindTableEvt() {
+            $("#content .updateGoods").on("click", updateGoods);
+            $("#content .delGoods").on("click", delGoods);
+        }
+    </script>
+}

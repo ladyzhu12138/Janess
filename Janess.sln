@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.表示层", "1.表示层", "{56019E07-E50B-4BC3-B2E9-70C313AEC9A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.业务逻辑层", "2.业务逻辑层", "{3E20CA96-560C-4B47-B80C-42ADDD210FC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.数据访问层", "3.数据访问层", "{2F7B8260-BE03-4802-A608-35A9C090D43B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janess.MVC.UI", "Janess.MVC.UI\Janess.MVC.UI.csproj", "{8252C479-0FEE-4174-B6A5-C787DC302BAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janess.BLL", "Janess.BLL\Janess.BLL.csproj", "{BF14AD4A-695A-43E2-9554-BB8F18792FB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janess.Model", "Janess.Model\Janess.Model.csproj", "{4D91748B-39D4-4921-A1A6-3891DA63DC38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janess.Common", "Janess.Common\Janess.Common.csproj", "{5F4629A4-404B-488D-ABFB-0A1F61D96503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janess.DAL", "Janess.DAL\Janess.DAL.csproj", "{0B04E375-A458-4C66-BF7D-8F21817CC970}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8252C479-0FEE-4174-B6A5-C787DC302BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8252C479-0FEE-4174-B6A5-C787DC302BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8252C479-0FEE-4174-B6A5-C787DC302BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8252C479-0FEE-4174-B6A5-C787DC302BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF14AD4A-695A-43E2-9554-BB8F18792FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF14AD4A-695A-43E2-9554-BB8F18792FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF14AD4A-695A-43E2-9554-BB8F18792FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF14AD4A-695A-43E2-9554-BB8F18792FB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D91748B-39D4-4921-A1A6-3891DA63DC38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D91748B-39D4-4921-A1A6-3891DA63DC38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D91748B-39D4-4921-A1A6-3891DA63DC38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D91748B-39D4-4921-A1A6-3891DA63DC38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F4629A4-404B-488D-ABFB-0A1F61D96503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F4629A4-404B-488D-ABFB-0A1F61D96503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F4629A4-404B-488D-ABFB-0A1F61D96503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F4629A4-404B-488D-ABFB-0A1F61D96503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B04E375-A458-4C66-BF7D-8F21817CC970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B04E375-A458-4C66-BF7D-8F21817CC970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B04E375-A458-4C66-BF7D-8F21817CC970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B04E375-A458-4C66-BF7D-8F21817CC970}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8252C479-0FEE-4174-B6A5-C787DC302BAD} = {56019E07-E50B-4BC3-B2E9-70C313AEC9A2}
+		{BF14AD4A-695A-43E2-9554-BB8F18792FB4} = {3E20CA96-560C-4B47-B80C-42ADDD210FC5}
+		{4D91748B-39D4-4921-A1A6-3891DA63DC38} = {2F7B8260-BE03-4802-A608-35A9C090D43B}
+		{0B04E375-A458-4C66-BF7D-8F21817CC970} = {2F7B8260-BE03-4802-A608-35A9C090D43B}
+	EndGlobalSection
+EndGlobal

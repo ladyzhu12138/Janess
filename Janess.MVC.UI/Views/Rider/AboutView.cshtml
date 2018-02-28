@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewBag.Title = "关于";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="R1" value="@ViewBag.RiderID" />
+<input type="hidden" id="R2" value="@ViewBag.Name" />
+<!--header-->
+<div class="header">
+    <div class="header-top">
+        <div class="container">
+            <p class="header-para">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">美好的一天开始了，开始接单了！</font>
+                </font>
+            </p>
+
+            <ul class="sign">
+                <li>
+                    <a href="/Rider/HomePageView">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">欢迎您,@ViewBag.Name（ID：@ViewBag.RiderID）</font>
+                        </font>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Index">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">退出</font>
+                        </font>
+                    </a>
+                </li>
+                @*<li>
+                    <a href="#"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                </li>*@
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="header-bottom-top">
+        <div class="container">
+            @*<div class="search">
+                <input type="text" value="Search website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                <input type="submit" value="">
+            </div>*@
+            <div class="clearfix"> </div>
+            <div class="header-bottom">
+                <div class="logo">
+                    <a href="/Rider/HomePageView">
+                        <img src="~/Image/Rider/grg.png" alt="" />
+                    </a>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li>
+                            <a href="/Rider/HomePageView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">主页</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/Rider/AboutView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">关于</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/OrderDeliveredView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">抢单</font>
+                                </font>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Rider/OrderUnfinishedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">未完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/OrderCompletedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">已完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/ContactUsView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">联系我们</font>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--content-->
+<div class="content">
+    <div class="content-gear">
+        <div class="container">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于</font></font></h3>
+
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在你开始抢单之前，你必须拥有合适的工具。</font><font style="vertical-align: inherit;">优先推荐ipad pro模式，</font><font style="vertical-align: inherit;">最终装载的三重墙桶提供了一个强大的，轻巧的击球区域与跳板表面和两件式的感觉。</font><font style="vertical-align: inherit;">大D端盖顶在12“桶上，保持精力集中在最佳位置，TR3 FLO把手，这只蝙蝠是一股等待爆炸的力量，只要你连接，你就可以感受到Juggy的肆无忌惮的力量作为一个。</font></font></p>
+        </div>
+    </div>
+    <div class="gear-content">
+        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">探索技术</font></font></h3>
+
+        <div class="gear-grid">
+            <div class="col-md-4">
+                <label class="icon-grid"> </label>
+                <div class="inner-gear">
+                    <h5><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">堆叠（双壁）</font></font></a></h5>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下一代DoubleWall堆叠复合材料优化了由DeMarini Power Ply分隔的多个墙壁，以实现最大的甜度 </font></font></p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="col-md-4">
+                <label class="icon-grid icon"> </label>
+                <div class="inner-gear">
+                    <h5><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TR3 FLO BARREL</font></font></a></h5>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">今年，我们融合了碳层，创造出一个重量更轻的更坚固的桶。</font><font style="vertical-align: inherit;">这使我们能够将蝙蝠的重量均匀分布在蝙蝠身上。</font><font style="vertical-align: inherit;">更平衡的蝙蝠产生更快的蝙蝠速度</font></font></p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="col-md-4">
+                <label class="icon-grid grid-icon"> </label>
+                <div class="inner-gear">
+                    <h5><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大“D”端盖</font></font></a></h5>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下一代DoubleWall堆叠复合材料优化了由DeMarini Power Ply分隔的多个墙壁，以实现最大的甜度 </font></font></p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<div class="footer">
+    <div class="container">
+        <div class="foter-bottom">
+            <p class="footer-grid"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有©2017-2018.TIME团队保留所有权利。</font></font></p>
+            <div class="nav-top">
+                <ul>
+                    <li><a href="/Rider/HomePageView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主页</font></font></a></li>
+                    <li class="active"><a href="/Rider/AboutView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 关于</font></font></a></li>
+                    <li><a href="/Rider/OrderDeliveredView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">抢单</font></font></a></li>
+                    <li><a href="/Rider/OrderUnfinishedView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">未完成订单</font></font></a></li>
+                    <li><a href="/Rider/OrderCompletedView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已完成订单</font></font></a></li>
+                    <li><a href="/Rider/ContactUsView" class="scroll"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系我们</font></font></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+

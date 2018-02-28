@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="00c05e41888146029e916266a7ccc2e3" Name="Diagram1">
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_ADMIN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_BUYER" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_BUYER_COLLECT" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_CART" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_EVALUATE_GOODS" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_EVALUATE_RIDER" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_FLOW" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_GOODS" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_LOG" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_RIDER" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_SELLER" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_SHOP" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_ORDER" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="JANESS_SYSTEM_DBModel.TB_ORDER_DETAILS" Width="1.5" PointX="3.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

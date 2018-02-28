@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "GoodsAddView";
+    Layout = "~/Views/Shared/_LayoutSellerIframe.cshtml";
+}
+<style>
+    #img1 {
+        width: 225px;
+        height: 225px;
+    }
+
+    .form-horizontal {
+        margin-left: 255px;
+    }
+
+        .form-horizontal .col-sm-1 {
+            margin-left: -35px;
+        }
+</style>
+<h3 id="hTitle"></h3>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="goodsName" class="col-sm-2 control-label">商品名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="goodsName" placeholder="商品名">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="goodsPrice" class="col-sm-2 control-label">商品价格</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="goodsPrice" placeholder="商品价格">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="goodsType" class="col-sm-2 control-label">商品种类</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="goodsType" placeholder="商品种类">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="goodsRepertory" class="col-sm-2 control-label">商品库存</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="goodsRepertory" placeholder="商品库存">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="goodsDescribe" class="col-sm-2 control-label">商品描述</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="goodsDescribe" placeholder="商品描述">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="goodsImage" class="col-sm-2 control-label">商品图片</label>
+        @*<div class="col-sm-10">
+            <input type="text" class="form-control" id="goodsImage" placeholder="商品图片">
+        </div>*@
+
+        <div class="col-sm-10 layui-upload">
+            <button type="button" class="layui-btn" id="test1">上传图片</button>
+            <div class="layui-upload-list">
+                <img class="layui-upload-img" id="img1" src="@ViewBag.ImageUrl">
+                <p id="demoText"></p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" id="btnSave" class="btn btn-info">保存</button>
+        </div>
+    </div>
+</form>
+
+@*隐藏input控件，value保存列表传入的id值*@
+<input type="hidden" id="hidGoodsID" value="@ViewBag.GoodsID" />
+
+@section myScript{
+    <script>
+        $(function () {
+            loadData();
+            $("#btnSave").on("click", saveGoods);
+        });
+
+        layui.use('upload', function () {
+            var $ = layui.jquery
+            , upload = layui.upload;
+
+            //普通图片上传
+            var uploadInst = upload.render({
+                elem: '#test1'
+              , url: '/Seller/SaveImages'
+              , accept: "images"
+              , done: function (res) {
+                  //如果上传成功
+                  if (res.code == 0) {
+                      var url = "/Seller/GetImage?imgName=" + res.data + "&_dc=new Data()";
+                      $("#img1").attr("src", url);
+                      return layer.msg('上传成功');
+                  }
+                      //上传失败
+                  else {
+                      return layer.msg('上传失败');
+                  }
+              }
+              , error: function () {
+                  //演示失败状态，并实现重传
+                  var demoText = $('#demoText');
+                  demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+                  demoText.find('.demo-reload').on('click', function () {
+                      uploadInst.upload();
+                  });
+              }
+            });
+        });
+
+        //加载数据
+        function loadData() {
+            var id = $("#hidGoodsID").val();
+            if (id) {
+                $("#hTitle").text("商品信息修改");
+                $.post("/Seller/GetGoodsInfoByID",
+                    { id: id },
+                    function (data) {
+                        var obj = $.getObjFromData(data);
+                        setObj2Form(obj);
+                    });
+            } else {
+                $("#hTitle").text("宝贝添加");
+            }
+        }
+
+        //将获取到的对象赋值到页面
+        function setObj2Form(data) {
+            $("#goodsName").val(data.GOODS_NAME);
+            $("#goodsPrice").val(data.GOODS_PRICE);
+            $("#goodsType").val(data.GOODS_TYPE);
+            $("#goodsDescribe").val(data.GOODS_DESCRIBE);
+            $("#goodsRepertory").val(data.GOODS_REPERTORY);
+            $("#goodsImage").val(data.GOODS_IMAGE_URL);
+        }
+
+        //从页面获取对象值
+        function getGoodsObj() {
+            var data = {
+                ID: $("#hidGoodsID").val() == "" ? -1 : $("#hidGoodsID").val(),
+                GOODS_NAME: $("#goodsName").val(),
+                GOODS_PRICE: $("#goodsPrice").val(),
+                GOODS_TYPE: $("#goodsType").val(),
+                GOODS_DESCRIBE: $("#goodsDescribe").val(),
+                GOODS_REPERTORY: $("#goodsRepertory").val(),
+                GOODS_IMAGE_URL: $("#img1").attr("src")
+            }
+            return data;
+        }
+
+        function saveGoods() {
+            var pars = getGoodsObj();
+            $.post("/Seller/SaveGoods",
+                pars,
+                function (data) {
+                    if (data) {
+                        layer.msg('保存成功', { icon: 1 });
+                    } else {
+                        layer.msg('保存失败', { icon: 2 });
+                    }
+                    window.location.href = "/Seller/GoodsView";
+                });
+        }
+
+    </script>
+}

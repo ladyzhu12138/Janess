@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "抢单";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="R1" value="@ViewBag.RiderID" />
+<input type="hidden" id="R2" value="@ViewBag.Name" />
+<!--header-->
+<div class="header">
+    <div class="header-top">
+        <div class="container">
+            <p class="header-para">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">抓紧每分每秒，抢在人前！</font>
+                </font>
+            </p>
+
+            <ul class="sign">
+                <li>
+                    <a href="/Rider/HomePageView">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">欢迎您,@ViewBag.Name（ID：@ViewBag.RiderID）</font>
+                        </font>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Index">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">退出</font>
+                        </font>
+                    </a>
+                </li>
+                @*<li>
+                    <a href="#"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                </li>*@
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="header-bottom-top">
+        <div class="container">
+            @*<div class="search">
+                <input type="text" value="Search website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                <input type="submit" value="">
+            </div>*@
+            <div class="clearfix"> </div>
+            <div class="header-bottom">
+                <div class="logo">
+                    <a href="/Rider/HomePageView">
+                        <img src="~/Image/Rider/grg.png" alt="" />
+                    </a>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li>
+                            <a href="/Rider/HomePageView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">主页</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/AboutView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">关于</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/Rider/OrderDeliveredView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">抢单</font>
+                                </font>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/Rider/OrderUnfinishedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">未完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/OrderCompletedView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">已完成订单</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Rider/ContactUsView" class="scroll">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">联系我们</font>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="T1" class="table table-bordered table-hover text-center"></table>
+
+
+<script type="text/html" id="opt">
+    <button type="button" class="tb-btn-service btn btn-primary btn-xs" data-id="{{d.ID}}">确定抢单</button>
+</script>
+@section myScript{
+
+    <script>
+        //菜单
+        $("span.menu").click(function () {
+            $(".top-nav ul").slideToggle(500, function () { });
+        });
+
+        $(function () {
+            layui.use('table', getOrderDelivered);
+            //定时器刷新使用
+            setInterval(function() {
+                layui.use('table', getOrderDelivered);
+            },5000);
+        });
+        function getOrderDelivered() {
+            var table = layui.table;
+
+            table.render({
+                id: 'tbOrder',
+                elem: '#T1',
+                method: 'post',
+                url: '/Rider/GetOrderNotShippedPager',
+                request: {
+                    pageName: 'PageIndex',//页码的参数名称，默认：page
+                    limitName: 'PageSize'//每页数据量的参数名，默认：limit
+                },
+                cols: [[
+                    { field: 'ID', title: '订单ID' },
+                    { field: 'ORDER_USER_ID', title: '用户ID' },
+                    { field: 'ORDER_SHOP_ID', title: '商铺ID' },
+                    //{ field: 'BUYER_NAME', title: '买家名' },
+                    //{ field: 'BUYER_ADDRESS', title: '买家地址' },
+                    //{ field: 'SHOP_NAME', title: '商铺名' },
+                    //{ field: 'SHOP_ADDRESS', title: '商铺地址' },
+                    { field: 'ORDER_RIDER_ID', title: '骑手ID' },
+                    { field: 'ORDER_TIME', title: '订单创建时间', minWidth: 150 },
+                    { field: 'ORDER_STATE', title: '订单状态' },
+                    { field: '', title: '操作', templet: '#opt' }
+                ]],
+                page: {
+                    //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'], //自定义分页布局
+                    //curr: 5, //设定初始在第 5 页
+                    groups: 1, //只显示 1 个连续页码
+                    first: false, //不显示首页
+                    last: false, //不显示尾页
+                    limit: 20
+                },
+                limits: [5, 10, 20, 50, 100],
+                response: {
+                    countName: "count",
+                    dataName: "data"
+                },
+                done: function (res, curr, count) {
+                    //数据渲染完的回调，你可以借此做一些其他的操作
+                }
+            });
+            $("#T1+div").on("click", ".tb-btn-service", GrabSingle);
+        }
+        //确定送达
+        function GrabSingle(evt) {
+            var OrderID = $(this).attr("data-id");
+            //由于内嵌了iframe 需要从父级进行弹出提示，否则遮罩效果不正确
+            parent.layer.confirm('是否确认抢单？', { icon: 3, title: '提示' }, function (index) {
+                $.post("/Rider/GrabSingle", { id: OrderID }, function () {
+                    if (1) {
+                        layer.msg('成功抢单', { icon: 1 });
+                    }
+                    layui.table.reload('tbOrder');
+                    $("#T1+div").on("click", ".tb-btn-service", GrabSingle);
+                    parent.layer.close(index);
+                });
+                parent.layer.close(index);
+            });
+        }
+    </script>
+}

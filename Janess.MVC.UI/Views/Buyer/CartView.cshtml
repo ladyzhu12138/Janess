@@ -1,0 +1,307 @@
+﻿
+@{
+    ViewBag.Title = "购物车";
+    Layout = "~/Views/Shared/_Layout_Cart.cshtml";
+}
+
+<input type="hidden" id="userID" value="@ViewBag.id" />
+<!--购物车 -->
+<div class="concent">
+    <div id="cartTable">
+        <div class="cart-table-th">
+            <div class="wp">
+                <div class="th th-chk">
+                    <div id="J_SelectAll1" class="select-all J_SelectAll">
+
+                    </div>
+                </div>
+                <div class="th th-item" style="width:300px">
+                    <div class="td-inner">商品信息</div>
+                </div>
+                <div class="th th-price">
+                    <div class="td-inner">单价</div>
+                </div>
+                <div class="th th-amount">
+                    <div class="td-inner">数量</div>
+                </div>
+                <div class="th th-sum">
+                    <div class="td-inner">金额</div>
+                </div>
+                <div class="th th-op">
+                    <div class="td-inner">操作</div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <tr class="item-list">
+            <div class="bundle  bundle-last ">
+                <div class="clear"></div>
+                <div class="bundle-main" id="show">
+
+                </div>
+            </div>
+        </tr>
+    </div>
+    <div class="clear"></div>
+
+    <div class="float-bar-wrapper">
+        <div id="J_SelectAll2" class="select-all J_SelectAll">
+            <div class="cart-checkbox">
+                <input class="check-all check" id="J_SelectAllCbx2" name="select-all" value="true" type="checkbox">
+                <label for="J_SelectAllCbx2"></label>
+            </div>
+            <span>全选</span>
+        </div>
+        <div class="operations">
+            <a href="#" hidefocus="true" class="deleteAll">删除</a>
+            <a href="#" hidefocus="true" class="J_BatchFav">移入收藏夹</a>
+        </div>
+        <div class="float-bar-right">
+            <div class="amount-sum">
+                <span class="txt">已选商品</span>
+                <em id="J_SelectedItemsCount">0</em><span class="txt">件</span>
+                <div class="arrow-box">
+                    <span class="selected-items-arrow"></span>
+                    <span class="arrow"></span>
+                </div>
+            </div>
+            <div class="price-sum">
+                <span class="txt">合计:</span>
+                <strong class="price">¥<em id="J_Total">0.00</em></strong>
+            </div>
+            <div class="btn-area">
+                <a id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
+                    <span>结&nbsp;算</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<input type="hidden" id="hidName" value="@ViewBag.Name" />
+@section myScript{
+    <script>
+        $(function () {
+            getCartGoods();
+            if ($("#hidName").val()) {
+                $("#loginContainer").hide();
+                $("#loginContainer1").show();
+            }
+            else {
+                $("#loginContainer").show();
+                $("#loginContainer1").hide();
+            }
+          
+        });
+       
+        //获取货物
+        function getCartGoods() {
+            var id = $("#userID").val();
+            $.post("/Buyer/GetCartGoods", { UserID: id }, function (data) {
+                var arr = data;
+                var html = "";
+                for (var i = 0; i < arr.length; i++) {
+                    html += "<ul class='item-content clearfix'>";
+                    html += "<input type='hidden' class='shopID' value=" + arr[i]. GOODS_SHOP_ID  + " />";
+                    html += "<input type='hidden' class='cartID' value=" + arr[i].ID + " />";
+                    html += "<li class='td td-chk'>";
+                    html += "<div class='cart-checkbox '>";
+                    html += "<input class='check' id='J_CheckBox_170037950254' name='items[]' value='170037950254' type='checkbox'>";
+                    html += "<label for='J_CheckBox_170037950254'></label>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-item'>";
+                    html += "<div class='item-pic'>";
+                    html += "<a href='#' target='_blank' data-title='' class='J_MakePoint' data-point='tbcart.8.12'>";
+                    html += "<img src=" + arr[i].GOODS_IMAGE_URL + " class='itempic J_ItemImg' style='width: 100%; height: 100%;'>";
+                    html += "</a>";
+                    html += "</div>";
+                    html += "<div class='item-info'>";
+                    html += "<div class='item-basic-info'>";
+                    html += "<a target='_blank' title='' class='item-title J_MakePoint getGoods' data-point='tbcart.8.11'>" + arr[i].GOODS_NAME + "</a>";
+                    html += "<input type='hidden' class='goodsId' value=" + arr[i].CART_GOODS_ID + " />";
+                    html += "</div>";
+                    html += "</div>";
+
+                    html += "<li class='td td-price'>";
+                    html += "<div class='item-price price-promo-promo'>";
+                    html += "<div class='price-content'>";
+                    html += "<div class='price-line'>";
+                    html += "<em class='J_Price price' tabindex='0'>" + arr[i].GOODS_PRICE + "</em>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-amount'>";
+                    html += "<div class='amount-wrapper '>";
+                    html += "<div class='item-amount '>";
+                    html += "<div class='sl'>";
+                    html += "<dd>";
+                    html += "<input  class='am-btn am-btn-default min' name='' type='button' value='-' />";
+                    html += "<input class='text_box' name='' type='text' value=" + arr[i].CART_GOODS_NUM + " style='width:30px;' />";
+                    html += "<input  class='am-btn am-btn-default max' name='' type='button' value='+' />";
+                    html += "</dd>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-sum'>";
+                    html += "<div class='td-inner'>";
+                    var price = arr[i].GOODS_PRICE * arr[i].CART_GOODS_NUM;
+                    html += "<em tabindex='0' class='J_ItemSum number'>" + price + "</em>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-op'>";
+                    html += "<div class='td-inner'>";
+                    html += "<a title='移入收藏夹' class='btn-fav addToLike'>";
+                    html += "移入收藏夹";
+                    html += "</a>";
+                    html += "<a href='javascript:;' data-point-url='#' class='delete'>";
+                    html += "删除";
+                    html += "</a>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += '</ul>';
+                }
+
+                $("#show").html(html);
+                $(".max").on("click", add);
+                $(".min").on("click", reduce);
+                $(".getGoods").on("click", getGoods);
+                $(".addToLike").on("click", addToLike);
+                $(".delete").on("click", deleteGoods);
+                $("#J_SelectAllCbx2").on("click", checkAllOrNot);
+                $(".check").on("click", allPrice);
+                $("#J_Go").on("click", addToOrder);
+            });
+        };
+        function addToOrder() {
+            var myDate = new Date();
+            var orderID = myDate.getFullYear().toString();
+            //orderID += myDate.getMonth();
+            //orderID += myDate.getDay();
+            //orderID += myDate.getDate();
+            //orderID += myDate.getHours();
+            orderID += myDate.getMinutes();
+            orderID += myDate.getSeconds();
+            //orderDetail
+            $("input[type='checkbox']:checked").each(function () {
+                var input = $(this).closest("ul").find(".goodsId");
+                var goodsID = input.val();
+                var number = $(this).closest("ul").find(".text_box");
+                var num = number.val();
+              
+                $.post("/Buyer/AddToOrderDetail", {OrderID: orderID,GoodsID: goodsID, GoodsNumber:num}, function(){});
+            });
+            var shop = $(".shopID").eq(0);
+            var shopID = shop.val();
+            var userID = $("#userID").val();
+            var price = $("#J_Total").text();
+            $.post("/Buyer/AddToOrder", {
+                UserID: userID,
+                ShopID: shopID,
+                OrderID: orderID,
+                Price: price,
+                OrderState:"未付款",
+            }, function () {
+                
+                window.location.href = "/Order/SubmitView?orderID=" + orderID;
+            })
+        }
+        //添加减少数量
+        function add(evt) {
+            var input = $(evt.currentTarget).parent().find("input").eq(1);
+            var num = input.val();
+            num++;
+            input.val(num);
+            var price = $(evt.currentTarget).closest("ul").find(".price").text();
+            var number = num * price;
+            $(evt.currentTarget).closest("ul").find(".number").text(number);
+            allPrice();
+        };
+        function reduce(evt) {
+            var input = $(evt.currentTarget).parent().find("input").eq(1);
+            var num = input.val();
+            if (num == 1) {
+                alert("不能再减少了");
+            }
+            else {
+                num--;
+                input.val(num);
+
+                var price = $(evt.currentTarget).closest("ul").find(".price").text();
+                var number = num * price;
+                $(evt.currentTarget).closest("ul").find(".number").text(number);
+
+            }
+            allPrice();
+        }
+        //返回详情界面
+        function getGoods(evt) {
+            var input = $(evt.currentTarget).parent().find("input");
+            var goodsID = input.val();
+            var url = "/Buyer/IntroductionView?val=" + goodsID;
+            window.location.href = url;
+        }
+        //添加至收藏
+        function addToLike(evt) {
+            var input = $(evt.currentTarget).closest("ul").find(".goodsId");
+            var goodsID = input.val();
+            var url = "/Buyer/AddToCollect";
+            var userID = $("#userID").val();
+            $.post(url, {
+                UserID: userID,
+                CollectID: goodsID,
+                Type: "商品",
+            }, function (data) {
+                //删除购物车内改商品
+                deleteGoods(evt);
+            });
+        }
+        //删除
+        function deleteGoods(evt) {
+            var input = $(evt.currentTarget).closest("ul").find(".cartID");
+            var cartID = input.val();
+            var url = "/Buyer/DeleteCartGoods";
+            $.post(url, { CartID: cartID }, function (data) {
+                //重新获取商品
+                getCartGoods();
+            });
+
+        }
+        //全选或不选
+        function checkAllOrNot() {
+            if (this.checked) {
+                $("input[type='checkbox']").each(function () {//全选
+                    this.checked = true;
+                });
+            }
+            else {
+                $("input[type='checkbox']").each(function () {//全不选
+                    this.checked = false;
+                });
+            }
+        }
+
+        function allPrice() {
+            var price = 0;
+            var num = 0;
+            $("input[type='checkbox']:checked").each(function () {
+                var i = $(this).closest("ul").find(".number").text();
+                price += new Number(i);
+                
+                num++;
+            });
+            if ($("#J_SelectAllCbx2")[0].checked) {
+                num--;
+            }
+            $("#J_Total").text(price);
+            $("#J_SelectedItemsCount").text(num);
+        }
+    </script>
+}
+
+
+

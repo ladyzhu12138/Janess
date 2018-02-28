@@ -1,0 +1,406 @@
+﻿
+@{
+    ViewBag.Title = "OrderView";
+    Layout = "~/Views/Buyer/PersonAsideView.cshtml";
+}
+
+<div class="user-order">
+
+    <!--标题 -->
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单管理</strong> / <small>Order</small></div>
+    </div>
+    <hr />
+
+    <div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
+
+        <ul class="am-avg-sm-5 am-tabs-nav am-nav am-nav-tabs">
+            <li class="am-active"><a href="#tab1">所有订单</a></li>
+            <li><a href="#tab2">待付款</a></li>
+            <li><a href="#tab3">待发货</a></li>
+            <li><a href="#tab4">待收货</a></li>
+            <li><a href="#tab5">待评价</a></li>
+        </ul>
+        <hr />
+        <div class="order-top">
+                    <div class="th th-item">
+                        <td class="td-inner">商品</td>
+                    </div>
+                    <div class="th th-price">
+                        <td class="td-inner">单价</td>
+                    </div>
+                    <div class="th th-number">
+                        <td class="td-inner">数量</td>
+                    </div>
+                    <div class="th th-operation">
+                        <td class="td-inner">商品操作</td>
+                    </div>
+                    <div class="th th-amount">
+                        <td class="td-inner">合计</td>
+                    </div>
+                    <div class="th th-status">
+                        <td class="td-inner">交易状态</td>
+                    </div>
+                    <div class="th th-change">
+                        <td class="td-inner">交易操作</td>
+                    </div>
+                </div>
+
+        <div class='am-tabs-bd'>
+            <div class='am-tab-panel am-fade am-in am-active' id='tab1'>
+                
+
+                <div class='order-main'>
+                    <div class='order-list'>
+
+                        <!--交易成功-->
+                        <div class='order-status5'>
+                            <div class='order-title'>
+                                <div class='dd-num'>订单编号：<a href='javascript:;'>1601430</a></div>
+                                <span>成交时间：2015-12-20</span>
+                                <!--    <em>店铺：小桔灯</em>-->
+                            </div>
+                            <div class='order-content'>
+                                <div class='order-left'>
+                                    <ul class='item-list'>
+                                        <li class='td td-item'>
+                                            <div class='item-pic'>
+                                                <a href='#' class='J_MakePoint'>
+                                                    <img src='../images/kouhong.jpg_80x80.jpg' class='itempic J_ItemImg'>
+                                                </a>
+                                            </div>
+                                            <div class='item-info'>
+                                                <div class='item-basic-info'>
+                                                    <a href='#'>
+                                                        <p>美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+                                                        <p class='info-little'>
+                                                            颜色：12#川南玛瑙
+                                                            <br />包装：裸装
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class='td td-price'>
+                                            <div class='item-price'>
+                                                333.00
+                                            </div>
+                                        </li>
+                                        <li class='td td-number'>
+                                            <div class='item-number'>
+                                                <span>×</span>2
+                                            </div>
+                                        </li>
+                                        <li class='td td-operation'>
+                                            <div class='item-operation'>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <ul class='item-list'>
+                                        <li class='td td-item'>
+                                            <div class='item-pic'>
+                                                <a href='#' class='J_MakePoint'>
+                                                    <img src='../images/62988.jpg_80x80.jpg' class='itempic J_ItemImg'>
+                                                </a>
+                                            </div>
+                                            <div class='item-info'>
+                                                <div class='item-basic-info'>
+                                                    <a href='#'>
+                                                        <p>礼盒袜子女秋冬 纯棉袜加厚 韩国可爱 </p>
+                                                        <p class='info-little'>
+                                                            颜色分类：李清照
+                                                            <br />尺码：均码
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class='td td-price'>
+                                            <div class='item-price'>
+                                                333.00
+                                            </div>
+                                        </li>
+                                        <li class='td td-number'>
+                                            <div class='item-number'>
+                                                <span>×</span>2
+                                            </div>
+                                        </li>
+                                        <li class='td td-operation'>
+                                            <div class='item-operation'>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <ul class='item-list'>
+                                        <li class='td td-item'>
+                                            <div class='item-pic'>
+                                                <a href='#' class='J_MakePoint'>
+                                                    <img src='../images/kouhong.jpg_80x80.jpg' class='itempic J_ItemImg'>
+                                                </a>
+                                            </div>
+                                            <div class='item-info'>
+                                                <div class='item-basic-info'>
+                                                    <a href='#'>
+                                                        <p>美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+                                                        <p class='info-little'>
+                                                            颜色：12#川南玛瑙
+                                                            <br />包装：裸装
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class='td td-price'>
+                                            <div class='item-price'>
+                                                333.00
+                                            </div>
+                                        </li>
+                                        <li class='td td-number'>
+                                            <div class='item-number'>
+                                                <span>×</span>2
+                                            </div>
+                                        </li>
+                                        <li class='td td-operation'>
+                                            <div class='item-operation'>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class='order-right'>
+                                    <li class='td td-amount'>
+                                        <div class='item-amount'>
+                                            合计：676.00
+                                            <p>含运费：<span>10.00</span></p>
+                                        </div>
+                                    </li>
+                                    <div class='move-right'>
+                                        <li class='td td-status'>
+                                            <div class='item-status'>
+                                                <p class='Mystatus'>交易成功</p>
+                                                <p class='order-info'><a href='orderinfo.html'>订单详情</a></p>
+                                                <p class='order-info'><a href='logistics.html'>查看物流</a></p>
+                                            </div>
+                                        </li>
+                                        <li class='td td-change'>
+                                            <div class='am-btn am-btn-danger anniu'>
+                                                删除订单
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="am-tab-panel am-fade" id="tab2">
+                
+            </div>
+            <div class="am-tab-panel am-fade" id="tab3">
+                tab3
+            </div>
+            <div class="am-tab-panel am-fade" id="tab4">
+                tab4
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab5">
+                tab5
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section myScript{
+    <script>
+        $(function () {
+            GetAllOrders();
+            GetUnpayOrders();
+            GetUnsendOrders();
+            GetUnsureOrders();
+            GetUnevaluateOrders();
+        });
+
+        function GetAllOrders() {
+            $.post("/Buyer/GetAllOrders", null, function (data) {
+                var arr = data;
+                var html = '';
+                for (var i = 0; i < arr.length; i++) {
+                    html += "<div class='order-main>";
+                    html += "<div class='order-list'>";
+                    html += "<div class='order-status5'>";
+                    html += "<div class='order-title'>";
+                    html += "<div class=dd-num'>订单编号：<span class='order_no'>" + arr[i].ORDER_NO;
+                    html += "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                    html += "<span>成交时间：" + arr[i].ORDER_TIME + "</span>" + "</div>";
+                    html += "</div>";
+                    $.ajax({
+                        url: "/Buyer/GetAllDetailOrders",
+                        data: { ORDER_NO: arr[i].ORDER_NO },
+                        async:false,
+                        success: function (data1) {
+                            var arry = data1;
+                            for (var j = 0; j < arry.length; j++) {
+                                //alert(i+arry[j].GOODS_NAME+j);
+                                html += "<div class='order-content'>";
+                                html += "<div class='order-left'>";
+                                html += "<ul class='item-list'>";
+                                html += "<li class='td td-item'>";
+                                html += "<div class='item-pic'>";
+                                html += "<a href='#' class='J_MakePoint'>";
+                                html += "<img src=" + arry[j].GOODS_IMAGE_URL + " class='itempic J_ItemImg' ";
+                                html += "</a>";
+                                html += "</div>";
+                                html += "<div class='item-info'>";
+                                html += "<div class='item-basic-info'>";
+                                html += "<a href='#'>";
+                                html += "<p>" + arry[j].GOODS_NAME + "</p>";
+                                html += "</a>";
+                                html += "</div>";
+                                html += "</div>";
+                                html += "</li>";
+                                html += "<li class='td td-price'>";
+                                html += "<div class='item-price'>" + arry[j].GOODS_PRICE + "</div>";
+                                html += "</li>";
+                                html += "<li class='td td-number'>";
+                                html += "<div class='item-number'>";
+                                html += "<span>×</span>" + arry[j].DETORSER_GOODS_NUM;
+                                html += "</div>";
+                                html += "</li>";
+                                html += "</ul>";
+                                html += "<ul class='item-list'>";
+                                html += "</div>";
+
+                            }
+                            $("#tab1").append(html);
+                        }
+                    });
+                    //$.post("/Buyer/GetAllDetailOrders", { ORDER_NO: arr[i].ORDER_NO }, )
+
+                    html += "<div class='order-right'>";
+                    html += "<li class='td td-amount'>";
+                    html += "<div class='item-amount'>合计：" + "";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<div class='move-right'>";
+                    html += "<li class='td td-status'>";
+                    html += "<div class='item-status'>";
+                    html += "<p class='Mystatus'>" + arr[i].ORDER_STATE + "</p>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-change'>";
+                    html += "<div class='am-btn am-btn-danger anniu'>";
+                    html += "删除订单";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    
+                }
+                $("#tab1").append(html);
+            })
+        };
+
+        function GetUnpayOrders() {
+            $.post("/Buyer/GetUnpayOrders", null, function (data) {
+                var arr = data;
+                var html = '';
+                for (var i = 0; i < arr.length; i++) {
+                    html += "<div class='order-main>";
+                    html += "<div class='order-list'>";
+                    html += "<div class='order-status5'>";
+                    html += "<div class='order-title'>";
+                    html += "<div class=dd-num'>订单编号：" + arr[i].ORDER_NO;
+                    html += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                    html += "<span>成交时间：" + arr[i].ORDER_TIME + "</span>" + "</div>";
+                    html += "</div>";
+                    html += "<div class='order-content'>";
+                    html += "<div class='order-left'>";
+                    html += "<ul class='item-list'>";
+                    html += "<li class='td td-item'>";
+                    html += "<div class='item-pic'>";
+                    html += "<a href='#' class='J_MakePoint'>";
+                    html += "<img src=" + arr[i].GOODS_IMAGE_URL + " class='itempic J_ItemImg' ";
+                    html += "</a>";
+                    html += "</div>";
+                    html += "<div class='item-info'>";
+                    html += "<div class='item-basic-info'>";
+                    html += "<a href='#'>";
+                    html += "<p>" + arr[i].GOODS_NAME + "</p>";
+                    html += "</a>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-price'>";
+                    html += "<div class='item-price'>" + arr[i].GOODS_PRICE + "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-number'>";
+                    html += "<div class='item-number'>";
+                    html += "<span>×</span>" + arr[i].DETORSER_GOODS_NUM;
+                    html += "</div>";
+                    html += "</li>";
+                    html += "</ul>";
+                    html += "<ul class='item-list'>";
+                    html += "</div>";
+                    html += "<div class='order-right'>";
+                    html += "<li class='td td-amount'>";
+                    html += "<div class='item-amount'>合计：" + "";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<div class='move-right'>";
+                    html += "<li class='td td-status'>";
+                    html += "<div class='item-status'>";
+                    html += "<p class='Mystatus'>" + arr[i].ORDER_STATE + "</p>";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "<li class='td td-change'>";
+                    html += "<div class='am-btn am-btn-danger anniu'>";
+                    html += "删除订单";
+                    html += "</div>";
+                    html += "</li>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                }
+                $("#tab2").append(html);
+            })
+        }
+
+        function GetUnsendOrders() {
+            var html = '';
+            for (var i = 0; i < 3; i++) {
+                html += i;
+                for (var j = 5; j < 8; j++) {
+                    html += j;
+                }
+                html += i;
+                html += '    ';
+                
+            }
+            $("#tab3").append(html);
+        }
+
+        function GetUnsureOrders() {
+
+        }
+
+        function GetUnevaluateOrders() {
+
+        }
+
+    </script>
+}

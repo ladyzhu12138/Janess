@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8252C479-0FEE-4174-B6A5-C787DC302BAD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Janess.MVC.UI</RootNamespace>
+    <AssemblyName>Janess.MVC.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\amazeui.css" />
+    <Content Include="Content\amazeui.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\cartstyle.css" />
+    <Content Include="Content\colstyle.css" />
+    <Content Include="Content\dlstyle.css" />
+    <Content Include="Content\jsstyle.css" />
+    <Content Include="Content\optstyle.css" />
+    <Content Include="Content\orstyle.css" />
+    <Content Include="Content\responsiveslides.min.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\styleNew.css" />
+    <Content Include="Content\sustyle.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Image\-0-saturn_solar.jpg_220x220.jpg" />
+    <Content Include="Image\01.jpg" />
+    <Content Include="Image\2.jpg" />
+    <Content Include="Image\ad5.jpg" />
+    <Content Include="Image\ad6.jpg" />
+    <Content Include="Image\ad7.jpg" />
+    <Content Include="Image\ad8.jpg" />
+    <Content Include="Image\bamboo.png" />
+    <Content Include="Image\big.jpg" />
+    <Content Include="Image\cake.png" />
+    <Content Include="Image\candy.png" />
+    <Content Include="Image\chocolate.png" />
+    <Content Include="Image\cookies.png" />
+    <Content Include="Image\fish.png" />
+    <Content Include="Image\getAvatar.do.jpg" />
+    <Content Include="Image\Goods\-0-saturn_solar.jpg_220x220.jpg" />
+    <Content Include="Image\Goods\01.jpg" />
+    <Content Include="Image\Goods\2.jpg" />
+    <Content Include="Image\Goods\T1kngcFfxeXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB10xMnJpXXXXbXXVXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB13LnuLXXXXXbqXVXXAHI79FXX_045548.jpg" />
+    <Content Include="Image\Goods\TB16LqTHFXXXXctXXXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1d57IIXXXXXaKXXXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1fScXLFXXXXXoaXXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1kAYGIVXXXXbHXVXXjAOi8pXX_022852.jpg" />
+    <Content Include="Image\Goods\TB1LBu9JVXXXXXZXFXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1MX4qHpXXXXcoXpXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1Op8_igLD8KJjSszeXXaGRpXa_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1P4whIpXXXXaaXFXX5F8A.FXX_105358.jpg" />
+    <Content Include="Image\Goods\TB1roYQHXXXXXXhaXXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1sOJ7JFXXXXXVaXXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB1SrynHXXXXXc.aXXXXXXXXXXX_!!0-item_pic.jpg" />
+    <Content Include="Image\Goods\TB2.v88cHJmpuFjSZFBXXXaZXXa_!!277227205.jpg" />
+    <Content Include="Image\Goods\TB23lwPipXXXXagXpXXXXXXXXXX_!!2266033239.jpg" />
+    <Content Include="Image\Goods\TB2A7EUcxHI8KJjy1zbXXaxdpXa_!!1607050979.jpg" />
+    <Content Include="Image\Goods\TB2cQ4sj3fH8KJjy1zcXXcTzpXa_!!572059930.jpg" />
+    <Content Include="Image\Goods\TB2DVzejFXXXXXyXpXXXXXXXXXX_!!67901011.jpg" />
+    <Content Include="Image\Goods\TB2GhUmlFXXXXakXpXXXXXXXXXX_!!2324834877.jpg" />
+    <Content Include="Image\Goods\TB2HfMYeFXXXXXiXXXXXXXXXXXX_!!1956010090.png" />
+    <Content Include="Image\Goods\TB2hHmBb7.HL1JjSZFuXXX8dXXa_!!572059930.jpg" />
+    <Content Include="Image\Goods\TB2IuvnXSJjpuFjy0FdXXXmoFXa_!!572059930.jpg" />
+    <Content Include="Image\Goods\TB2iz.BmhTI8KJjSspiXXbM4FXa_!!277227205.jpg" />
+    <Content Include="Image\Goods\TB2IzjPymFmpuFjSZFrXXayOXXa_!!277227205.jpg" />
+    <Content Include="Image\Goods\TB2kEXRiX9gSKJjSspbXXbeNXXa_!!1990516179.jpg" />
+    <Content Include="Image\Goods\TB2L.n1gXXXXXXLXpXXXXXXXXXX_!!2266033239.jpg" />
+    <Content Include="Image\Goods\TB2sS95XDAKL1JjSZFCXXXFspXa_!!1110305677.jpg" />
+    <Content Include="Image\Goods\TB2TOrhcoWO.eBjSZPcXXbopVXa_!!756810899.jpg" />
+    <Content Include="Image\Goods\TB2uQ6flFXXXXb7XpXXXXXXXXXX_!!2324834877.jpg" />
+    <Content Include="Image\Goods\TB2w2FBlBDH8KJjSszcXXbDTFXa_!!2087715324.jpg" />
+    <Content Include="Image\Goods\TB2wCh7hbXlpuFjSszfXXcSGXXa_!!277227205.jpg" />
+    <Content Include="Image\Goods\TB2WNPVcDnI8KJjy0FfXXcdoVXa_!!277227205.jpg" />
+    <Content Include="Image\Goods\TB2X5udbbPx2eJjSZFBXXbmZVXa_!!756810899.jpg" />
+    <Content Include="Image\head.jpg" />
+    <Content Include="Image\logobig.png" />
+    <Content Include="Image\meat.png" />
+    <Content Include="Image\nut.png" />
+    <Content Include="Image\Order\T13iv.XiFdXXa94Hfd-32-32.png" />
+    <Content Include="Image\Order\wangyin.jpg" />
+    <Content Include="Image\Order\weizhifu.jpg" />
+    <Content Include="Image\Order\zhifubao.jpg" />
+    <Content Include="Image\package.png" />
+    <Content Include="Image\Rider\2r7ixz.jpg" />
+    <Content Include="Image\Rider\3.jpg" />
+    <Content Include="Image\Rider\ban.jpg" />
+    <Content Include="Image\Rider\bb.jpg" />
+    <Content Include="Image\Rider\gadc4e.jpg" />
+    <Content Include="Image\Rider\grg.png" />
+    <Content Include="Image\Rider\img-sprite.png" />
+    <Content Include="Image\Rider\jas %281%29.png" />
+    <Content Include="Image\Rider\timg %281%29.jpg" />
+    <Content Include="Image\Rider\timg2.jpg" />
+    <Content Include="Image\Rider\tub.jpg" />
+    <Content Include="Image\Rider\y12ux4.jpg" />
+    <Content Include="Image\shop\DefaultShop.jpg" />
+    <Content Include="Image\shop\shop1.jpg" />
+    <Content Include="Image\shop\shop2.jpg" />
+    <Content Include="Image\shop\shop4.jpg" />
+    <Content Include="Image\shop\shop3.jpg" />
+    <Content Include="Image\tea.png" />
+    <Content Include="layer\layer.js" />
+    <Content Include="layer\mobile\layer.js" />
+    <Content Include="layer\mobile\need\layer.css" />
+    <Content Include="layer\theme\default\icon-ext.png" />
+    <Content Include="layer\theme\default\icon.png" />
+    <Content Include="layer\theme\default\layer.css" />
+    <Content Include="layer\theme\default\loading-0.gif" />
+    <Content Include="layer\theme\default\loading-1.gif" />
+    <Content Include="layer\theme\default\loading-2.gif" />
+    <Content Include="layui\css\layui.css" />
+    <Content Include="layui\css\layui.mobile.css" />
+    <Content Include="layui\css\modules\code.css" />
+    <Content Include="layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="layui\css\modules\layer\default\icon.png" />
+    <Content Include="layui\css\modules\layer\default\layer.css" />
+    <Content Include="layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="layui\font\iconfont.svg" />
+    <Content Include="layui\images\face\0.gif" />
+    <Content Include="layui\images\face\1.gif" />
+    <Content Include="layui\images\face\10.gif" />
+    <Content Include="layui\images\face\11.gif" />
+    <Content Include="layui\images\face\12.gif" />
+    <Content Include="layui\images\face\13.gif" />
+    <Content Include="layui\images\face\14.gif" />
+    <Content Include="layui\images\face\15.gif" />
+    <Content Include="layui\images\face\16.gif" />
+    <Content Include="layui\images\face\17.gif" />
+    <Content Include="layui\images\face\18.gif" />
+    <Content Include="layui\images\face\19.gif" />
+    <Content Include="layui\images\face\2.gif" />
+    <Content Include="layui\images\face\20.gif" />
+    <Content Include="layui\images\face\21.gif" />
+    <Content Include="layui\images\face\22.gif" />
+    <Content Include="layui\images\face\23.gif" />
+    <Content Include="layui\images\face\24.gif" />
+    <Content Include="layui\images\face\25.gif" />
+    <Content Include="layui\images\face\26.gif" />
+    <Content Include="layui\images\face\27.gif" />
+    <Content Include="layui\images\face\28.gif" />
+    <Content Include="layui\images\face\29.gif" />
+    <Content Include="layui\images\face\3.gif" />
+    <Content Include="layui\images\face\30.gif" />
+    <Content Include="layui\images\face\31.gif" />
+    <Content Include="layui\images\face\32.gif" />
+    <Content Include="layui\images\face\33.gif" />
+    <Content Include="layui\images\face\34.gif" />
+    <Content Include="layui\images\face\35.gif" />
+    <Content Include="layui\images\face\36.gif" />
+    <Content Include="layui\images\face\37.gif" />
+    <Content Include="layui\images\face\38.gif" />
+    <Content Include="layui\images\face\39.gif" />
+    <Content Include="layui\images\face\4.gif" />
+    <Content Include="layui\images\face\40.gif" />
+    <Content Include="layui\images\face\41.gif" />
+    <Content Include="layui\images\face\42.gif" />
+    <Content Include="layui\images\face\43.gif" />
+    <Content Include="layui\images\face\44.gif" />
+    <Content Include="layui\images\face\45.gif" />
+    <Content Include="layui\images\face\46.gif" />
+    <Content Include="layui\images\face\47.gif" />
+    <Content Include="layui\images\face\48.gif" />
+    <Content Include="layui\images\face\49.gif" />
+    <Content Include="layui\images\face\5.gif" />
+    <Content Include="layui\images\face\50.gif" />
+    <Content Include="layui\images\face\51.gif" />
+    <Content Include="layui\images\face\52.gif" />
+    <Content Include="layui\images\face\53.gif" />
+    <Content Include="layui\images\face\54.gif" />
+    <Content Include="layui\images\face\55.gif" />
+    <Content Include="layui\images\face\56.gif" />
+    <Content Include="layui\images\face\57.gif" />
+    <Content Include="layui\images\face\58.gif" />
+    <Content Include="layui\images\face\59.gif" />
+    <Content Include="layui\images\face\6.gif" />
+    <Content Include="layui\images\face\60.gif" />
+    <Content Include="layui\images\face\61.gif" />
+    <Content Include="layui\images\face\62.gif" />
+    <Content Include="layui\images\face\63.gif" />
+    <Content Include="layui\images\face\64.gif" />
+    <Content Include="layui\images\face\65.gif" />
+    <Content Include="layui\images\face\66.gif" />
+    <Content Include="layui\images\face\67.gif" />
+    <Content Include="layui\images\face\68.gif" />
+    <Content Include="layui\images\face\69.gif" />
+    <Content Include="layui\images\face\7.gif" />
+    <Content Include="layui\images\face\70.gif" />
+    <Content Include="layui\images\face\71.gif" />
+    <Content Include="layui\images\face\8.gif" />
+    <Content Include="layui\images\face\9.gif" />
+    <Content Include="layui\layui.all.js" />
+    <Content Include="layui\layui.js" />
+    <Content Include="layui\lay\modules\carousel.js" />
+    <Content Include="layui\lay\modules\code.js" />
+    <Content Include="layui\lay\modules\element.js" />
+    <Content Include="layui\lay\modules\flow.js" />
+    <Content Include="layui\lay\modules\form.js" />
+    <Content Include="layui\lay\modules\jquery.js" />
+    <Content Include="layui\lay\modules\laydate.js" />
+    <Content Include="layui\lay\modules\layedit.js" />
+    <Content Include="layui\lay\modules\layer.js" />
+    <Content Include="layui\lay\modules\laypage.js" />
+    <Content Include="layui\lay\modules\laytpl.js" />
+    <Content Include="layui\lay\modules\mobile.js" />
+    <Content Include="layui\lay\modules\table.js" />
+    <Content Include="layui\lay\modules\tree.js" />
+    <Content Include="layui\lay\modules\upload.js" />
+    <Content Include="layui\lay\modules\util.js" />
+    <Content Include="Scripts\address.js" />
+    <Content Include="Scripts\amazeui.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\hmstyle.css" />
+    <Content Include="Content\infstyle.css" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery-1.7.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\jquery.imagezoom.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Content\personal.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\amazeui.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="layui\font\iconfont.eot" />
+    <Content Include="layui\font\iconfont.ttf" />
+    <Content Include="layui\font\iconfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\pub.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\js.cookie-2.2.0.min.js" />
+    <Content Include="Scripts\list.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\quick_links.js" />
+    <Content Include="Content\seastyle.css" />
+    <Content Include="Views\Rider\ContactUsView.cshtml" />
+    <Content Include="Views\Rider\HomePageView.cshtml" />
+    <Content Include="Views\Buyer\CollectionGoodsView.cshtml" />
+    <Content Include="Views\Shared\_Layout_Buyer.cshtml" />
+    <Content Include="Views\Seller\OrderViewPager.cshtml" />
+    <Content Include="Views\Rider\OrderCompletedView.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\_Layout_Search.cshtml" />
+    <Content Include="Views\Rider\OrderDeliveredView.cshtml" />
+    <Content Include="Views\Rider\OrderUnfinishedView.cshtml" />
+    <Content Include="Views\Shared\_Layout_Person.cshtml" />
+    <Content Include="Views\Buyer\CollectionShopsView.cshtml" />
+    <Content Include="Views\Buyer\OrderView.cshtml" />
+    <Content Include="Views\Buyer\CartView.cshtml" />
+    <Content Include="Views\Shared\_Layout_Cart.cshtml" />
+    <Content Include="Views\Rider\debuggingView.cshtml" />
+    <Content Include="Views\Shared\_Layout_Order.cshtml" />
+    <Content Include="Views\Order\SubmitView.cshtml" />
+    <Content Include="Views\Order\SuccessView.cshtml" />
+    <Content Include="Views\Seller\EditGoodsView.cshtml" />
+    <Content Include="Views\Rider\AboutView.cshtml" />
+    <Content Include="Views\Buyer\IntroductionShopView.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BuyerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\RiderController.cs" />
+    <Compile Include="Controllers\SellerController.cs" />
+    <Compile Include="Core\BaseController.cs" />
+    <Compile Include="Core\Config.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LayUITableModel.cs" />
+    <Compile Include="Models\LayUIVOState.cs" />
+    <Compile Include="Models\ViewModelState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Buyer\EvaluateGoodsView.cshtml" />
+    <Content Include="Views\Buyer\PersonAsideView.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_Home.cshtml" />
+    <Content Include="Views\Buyer\DataView.cshtml" />
+    <Content Include="Views\Login\SignInView.cshtml" />
+    <Content Include="Views\Login\SignUpView.cshtml" />
+    <Content Include="Views\Seller\GoodsView.cshtml" />
+    <Content Include="Views\Seller\Index.cshtml" />
+    <Content Include="Views\Seller\ShopView.cshtml" />
+    <Content Include="Views\Shared\_LayoutSellerIframe.cshtml" />
+    <Content Include="Views\Shared\_LayoutSellerIndex.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_LayoutRider.cshtml" />
+    <Content Include="Views\Buyer\AltPwd2View.cshtml" />
+    <Content Include="Views\Buyer\AltPwdView.cshtml" />
+    <Content Include="Views\Buyer\ContactView.cshtml" />
+    <Content Include="Views\Buyer\SearchView.cshtml" />
+    <Content Include="Views\Buyer\IntroductionView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Janess.BLL\Janess.BLL.csproj">
+      <Project>{bf14ad4a-695a-43e2-9554-bb8f18792fb4}</Project>
+      <Name>Janess.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Janess.Common\Janess.Common.csproj">
+      <Project>{5f4629a4-404b-488d-abfb-0a1f61d96503}</Project>
+      <Name>Janess.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Janess.DAL\Janess.DAL.csproj">
+      <Project>{0B04E375-A458-4C66-BF7D-8F21817CC970}</Project>
+      <Name>Janess.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Janess.Model\Janess.Model.csproj">
+      <Project>{4d91748b-39d4-4921-a1a6-3891da63dc38}</Project>
+      <Name>Janess.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56581</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56581/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
