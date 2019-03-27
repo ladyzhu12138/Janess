@@ -7,3 +7,6 @@
 /Janess.Common/obj
 /Janess.DAL/obj
 /Janess.Model/obj
+/packages
+/Janess.MVC.UI/obj
+/Janess.MVC.UI/bin
