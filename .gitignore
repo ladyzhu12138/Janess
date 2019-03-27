@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/Janess.BLL/obj
+/Janess.Common/obj
+/Janess.DAL/obj
+/Janess.Model/obj
